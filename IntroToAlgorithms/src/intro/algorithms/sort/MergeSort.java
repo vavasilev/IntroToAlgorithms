@@ -34,12 +34,12 @@ public class MergeSort<T extends Comparable<T>, U extends KeyedData<T>> implemen
 		for(int i=0; i<length1; i++) {
 			L1[i] = A[start+i];
 		}
-		L1[length1] = minMaxProvider.getMaxSortable();
+		L1[length1] = minMaxProvider.getMaxKeyedData();
 		
 		for(int i=0; i<length2; i++) {
 			L2[i] = A[middle+i+1];
 		}
-		L2[length2] = minMaxProvider.getMaxSortable();
+		L2[length2] = minMaxProvider.getMaxKeyedData();
 		
 		int l1I = 0;
 		int l2I = 0;

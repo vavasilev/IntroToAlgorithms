@@ -13,12 +13,12 @@ public class DoubleMinMaxProvider implements MinMaxProvider<Double, DoubleSortab
 	}
 
 	@Override
-	public DoubleSortable getMinSortable() {
+	public DoubleSortable getMinKeyedData() {
 		return new DoubleSortable(getMinKey());
 	}
 
 	@Override
-	public DoubleSortable getMaxSortable() {
+	public DoubleSortable getMaxKeyedData() {
 		return new DoubleSortable(getMaxKey());
 	}
 }

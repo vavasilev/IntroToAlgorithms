@@ -14,12 +14,12 @@ public class IntMinMaxProvider implements
 	}
 
 	@Override
-	public IntKeyedData getMinSortable() {
+	public IntKeyedData getMinKeyedData() {
 		return new IntKeyedData(getMinKey());
 	}
 
 	@Override
-	public IntKeyedData getMaxSortable() {
+	public IntKeyedData getMaxKeyedData() {
 		return new IntKeyedData(getMaxKey());
 	}
 

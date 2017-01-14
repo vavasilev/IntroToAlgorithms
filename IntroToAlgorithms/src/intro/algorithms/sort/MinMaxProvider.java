@@ -4,6 +4,6 @@ public interface MinMaxProvider<T extends Comparable<T>, U extends KeyedData<T>>
 	T getMinKey();
 	T getMaxKey();
 	
-	U getMinSortable();
-	U getMaxSortable();
+	U getMinKeyedData();
+	U getMaxKeyedData();
 }
