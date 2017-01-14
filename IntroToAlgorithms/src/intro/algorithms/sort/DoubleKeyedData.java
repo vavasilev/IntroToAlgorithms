@@ -1,9 +1,9 @@
 package intro.algorithms.sort;
 
-public class DoubleSortable implements KeyedData<Double> {
+public class DoubleKeyedData implements KeyedData<Double> {
 	double key;
 	
-	public DoubleSortable(double key) {
+	public DoubleKeyedData(double key) {
 		this.key = key;
 	}
 	
@@ -17,10 +17,10 @@ public class DoubleSortable implements KeyedData<Double> {
 		this.key = key;
 	}
 
-	public static DoubleSortable [] toSimpleSortableArray(double [] A) {
-		DoubleSortable [] result = new DoubleSortable [A.length];
+	public static DoubleKeyedData [] toSimpleSortableArray(double [] A) {
+		DoubleKeyedData [] result = new DoubleKeyedData [A.length];
 		for(int i=0; i< A.length; i++) {
-			result[i] = new DoubleSortable(A[i]);
+			result[i] = new DoubleKeyedData(A[i]);
 		}
 		
 		return result;

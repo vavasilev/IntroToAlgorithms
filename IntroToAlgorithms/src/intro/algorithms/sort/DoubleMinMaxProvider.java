@@ -1,6 +1,6 @@
 package intro.algorithms.sort;
 
-public class DoubleMinMaxProvider implements MinMaxProvider<Double, DoubleSortable> {
+public class DoubleMinMaxProvider implements MinMaxProvider<Double, DoubleKeyedData> {
 
 	@Override
 	public Double getMinKey() {
@@ -13,12 +13,12 @@ public class DoubleMinMaxProvider implements MinMaxProvider<Double, DoubleSortab
 	}
 
 	@Override
-	public DoubleSortable getMinKeyedData() {
-		return new DoubleSortable(getMinKey());
+	public DoubleKeyedData getMinKeyedData() {
+		return new DoubleKeyedData(getMinKey());
 	}
 
 	@Override
-	public DoubleSortable getMaxKeyedData() {
-		return new DoubleSortable(getMaxKey());
+	public DoubleKeyedData getMaxKeyedData() {
+		return new DoubleKeyedData(getMaxKey());
 	}
 }
