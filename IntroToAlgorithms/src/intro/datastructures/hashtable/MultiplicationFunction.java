@@ -1,4 +1,4 @@
-package amazonprep.datastructures.hashtable;
+package intro.datastructures.hashtable;
 
 public class MultiplicationFunction implements HashFunction {
 	

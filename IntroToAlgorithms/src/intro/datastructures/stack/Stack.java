@@ -1,4 +1,4 @@
-package amazonprep.datastructures.stack;
+package intro.datastructures.stack;
 
 
 public class Stack<T> {

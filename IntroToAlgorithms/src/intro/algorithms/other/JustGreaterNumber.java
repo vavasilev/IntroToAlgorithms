@@ -1,4 +1,4 @@
-package amazonprep.algorithms.other;
+package intro.algorithms.other;
 
 public class JustGreaterNumber {
 

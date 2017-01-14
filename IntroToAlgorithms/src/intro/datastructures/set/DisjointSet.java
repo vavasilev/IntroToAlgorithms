@@ -1,6 +1,6 @@
-package amazonprep.datastructures.set;
+package intro.datastructures.set;
 
-import amazonprep.datastructures.list.ListElement;
+import intro.datastructures.list.ListElement;
 
 public class DisjointSet<T> extends ListElement<T> {
 	private DisjointSet<T> representative;

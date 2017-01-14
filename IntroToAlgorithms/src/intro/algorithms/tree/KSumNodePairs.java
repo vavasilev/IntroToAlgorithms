@@ -1,24 +1,24 @@
-package amazonprep.algorithms.tree;
+package intro.algorithms.tree;
 
-import amazonprep.algorithms.sort.SimpleSortable;
-import amazonprep.datastructures.list.LinkedList;
+import intro.algorithms.sort.IntKeyedData;
+import intro.datastructures.list.LinkedList;
 
 public class KSumNodePairs {
 	
-	public LinkedList<NodePair<SimpleSortable>> findKSumNodePairsNearLinear(int k, BinarySearchTree<Integer, SimpleSortable> bst) {
-		LinkedList<NodePair<SimpleSortable>> pairs = new LinkedList<NodePair<SimpleSortable>>();
+	public LinkedList<NodePair<IntKeyedData>> findKSumNodePairsNearLinear(int k, BinarySearchTree<Integer, IntKeyedData> bst) {
+		LinkedList<NodePair<IntKeyedData>> pairs = new LinkedList<NodePair<IntKeyedData>>();
 		
-		BinaryTreeNode<Integer, SimpleSortable> elm1 = bst.getMinimumElement();
-		BinaryTreeNode<Integer, SimpleSortable> elm2 = bst.getMaximumElement();
+		BinaryTreeNode<Integer, IntKeyedData> elm1 = bst.getMinimumElement();
+		BinaryTreeNode<Integer, IntKeyedData> elm2 = bst.getMaximumElement();
 		
 		while(elm1 != elm2) {
 			int elm1Key = elm1.getData().getKey();
 			int elm2Key = elm2.getData().getKey();
 			if(elm1Key + elm2Key == k) {
-				pairs.insertData(new NodePair<SimpleSortable>(elm1.getData(), elm2.getData()));
+				pairs.insertData(new NodePair<IntKeyedData>(elm1.getData(), elm2.getData()));
 				
-				BinaryTreeNode<Integer, SimpleSortable> elm1Succ = bst.getSuccessorElement(elm1);
-				BinaryTreeNode<Integer, SimpleSortable> elm2Pred = bst.getPredecessorElement(elm2);
+				BinaryTreeNode<Integer, IntKeyedData> elm1Succ = bst.getSuccessorElement(elm1);
+				BinaryTreeNode<Integer, IntKeyedData> elm2Pred = bst.getPredecessorElement(elm2);
 				
 				while(elm1Succ.getData().getKey() == elm1.getData().getKey() && elm1Succ != elm2) {
 					elm1Succ = bst.getSuccessorElement(elm1Succ);
@@ -46,22 +46,22 @@ public class KSumNodePairs {
 		return pairs;
 	}
 	
-	public LinkedList<NodePair<SimpleSortable>> findKSumNodePairsLinear(int k, BinarySearchTree<Integer, SimpleSortable> bst) {
-		LinkedList<NodePair<SimpleSortable>> pairs = new LinkedList<NodePair<SimpleSortable>>();
+	public LinkedList<NodePair<IntKeyedData>> findKSumNodePairsLinear(int k, BinarySearchTree<Integer, IntKeyedData> bst) {
+		LinkedList<NodePair<IntKeyedData>> pairs = new LinkedList<NodePair<IntKeyedData>>();
 		
 		bst.converToDLL(WalkOrder.IN);
 		
-		BinaryTreeNode<Integer, SimpleSortable> elm1 = bst.getRoot();
-		BinaryTreeNode<Integer, SimpleSortable> elm2 = bst.getMinimumElement();
+		BinaryTreeNode<Integer, IntKeyedData> elm1 = bst.getRoot();
+		BinaryTreeNode<Integer, IntKeyedData> elm2 = bst.getMinimumElement();
 		
 		while(elm1 != elm2) {
 			int elm1Key = elm1.getData().getKey();
 			int elm2Key = elm2.getData().getKey();
 			if(elm1Key + elm2Key == k) {
-				pairs.insertData(new NodePair<SimpleSortable>(elm1.getData(), elm2.getData()));
+				pairs.insertData(new NodePair<IntKeyedData>(elm1.getData(), elm2.getData()));
 				
-				BinaryTreeNode<Integer, SimpleSortable> elm1Succ = elm1.getLeft();
-				BinaryTreeNode<Integer, SimpleSortable> elm2Pred = elm2.getParent();
+				BinaryTreeNode<Integer, IntKeyedData> elm1Succ = elm1.getLeft();
+				BinaryTreeNode<Integer, IntKeyedData> elm2Pred = elm2.getParent();
 				
 				while(elm1Succ.getData().getKey() == elm1.getData().getKey() && elm1Succ != elm2) {
 					elm1Succ = elm1Succ.getLeft();

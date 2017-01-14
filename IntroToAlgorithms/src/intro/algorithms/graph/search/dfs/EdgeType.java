@@ -1,4 +1,4 @@
-package amazonprep.algorithms.graph.search.dfs;
+package intro.algorithms.graph.search.dfs;
 
 public enum EdgeType {
 	NORMAL, BACKWARD, FORWARD, CROSS

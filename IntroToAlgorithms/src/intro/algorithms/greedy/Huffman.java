@@ -1,23 +1,23 @@
-package amazonprep.algorithms.greedy;
+package intro.algorithms.greedy;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import amazonprep.algorithms.sort.MinMaxProvider;
-import amazonprep.algorithms.sort.Sortable;
-import amazonprep.algorithms.tree.BinaryTree;
-import amazonprep.algorithms.tree.BinaryTreeNode;
-import amazonprep.algorithms.tree.BinaryTreeVisitor;
-import amazonprep.algorithms.tree.WalkOrder;
-import amazonprep.algorithms.tree.WalkOrderData;
-import amazonprep.datastructures.heap.Heap;
-import amazonprep.datastructures.heap.Heap.HeapType;
+import intro.algorithms.sort.MinMaxProvider;
+import intro.algorithms.sort.KeyedData;
+import intro.algorithms.tree.BinaryTree;
+import intro.algorithms.tree.BinaryTreeNode;
+import intro.algorithms.tree.BinaryTreeVisitor;
+import intro.algorithms.tree.WalkOrder;
+import intro.algorithms.tree.WalkOrderData;
+import intro.datastructures.heap.Heap;
+import intro.datastructures.heap.Heap.HeapType;
 
 public class Huffman {
 	
-	private MinMaxProvider<Integer, ? extends Sortable<Integer>> minMaxProvider;
+	private MinMaxProvider<Integer, ? extends KeyedData<Integer>> minMaxProvider;
 	
-	public Huffman(MinMaxProvider<Integer, ? extends Sortable<Integer>> minMaxProvider) {
+	public Huffman(MinMaxProvider<Integer, ? extends KeyedData<Integer>> minMaxProvider) {
 		this.minMaxProvider = minMaxProvider;
 	}
 	
@@ -95,7 +95,7 @@ public class Huffman {
 		return nodes;
 	}
 
-	public static class CharacterFrequency implements Sortable<Integer> {
+	public static class CharacterFrequency implements KeyedData<Integer> {
 		private char character;
 		private int frequency;
 		public CharacterFrequency(char character, int frequency) {

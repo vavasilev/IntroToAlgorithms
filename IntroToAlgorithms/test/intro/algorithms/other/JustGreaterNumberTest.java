@@ -1,4 +1,4 @@
-package amazonprep.algorithms.other;
+package intro.algorithms.other;
 
 import static org.junit.Assert.*;
 

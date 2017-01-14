@@ -1,6 +1,6 @@
-package amazonprep.algorithms.graph;
+package intro.algorithms.graph;
 
-import amazonprep.datastructures.list.LinkedList;
+import intro.datastructures.list.LinkedList;
 
 public class Graph<T, V extends Vertex<T>, E extends Edge<T>> {
 

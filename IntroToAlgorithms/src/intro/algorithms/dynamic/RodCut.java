@@ -1,4 +1,4 @@
-package amazonprep.algorithms.dynamic;
+package intro.algorithms.dynamic;
 
 import java.util.Arrays;
 

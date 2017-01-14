@@ -1,6 +1,6 @@
-package amazonprep.algorithms.graph.search.dfs;
+package intro.algorithms.graph.search.dfs;
 
-import amazonprep.algorithms.graph.search.SearchVertex;
+import intro.algorithms.graph.search.SearchVertex;
 
 public class DFSVertex<T> extends SearchVertex<T> {
 	

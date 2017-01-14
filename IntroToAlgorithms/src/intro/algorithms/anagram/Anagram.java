@@ -1,9 +1,9 @@
-package amazonprep.algorithms.anagram;
+package intro.algorithms.anagram;
 
-import amazonprep.algorithms.sort.Sortable;
-import amazonprep.datastructures.list.LinkedList;
+import intro.algorithms.sort.KeyedData;
+import intro.datastructures.list.LinkedList;
 
-public class Anagram implements Sortable<String> {
+public class Anagram implements KeyedData<String> {
 
 	private String representative;
 	private LinkedList<String> words = new LinkedList<String>();

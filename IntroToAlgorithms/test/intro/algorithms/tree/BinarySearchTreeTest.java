@@ -1,22 +1,22 @@
-package amazonprep.algorithms.tree;
+package intro.algorithms.tree;
 
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Before;
 import org.junit.Test;
 
-import amazonprep.algorithms.sort.SimpleSortable;
+import intro.algorithms.sort.IntKeyedData;
 
 public class BinarySearchTreeTest {
 
-	BinarySearchTree<Integer, SimpleSortable> tree;
+	BinarySearchTree<Integer, IntKeyedData> tree;
 	
 	@Before
 	public void prepareTree() {
-		SimpleSortable [] A = SimpleSortable.toSimpleSortableArray(new int [] {85, 1, 57, 54, 95, 83, 84, 72, 82, 32, 84});
+		IntKeyedData [] A = IntKeyedData.toSimpleSortableArray(new int [] {85, 1, 57, 54, 95, 83, 84, 72, 82, 32, 84});
 		
-		tree = new BinarySearchTree<Integer, SimpleSortable>();
-		for(SimpleSortable a: A) {
+		tree = new BinarySearchTree<Integer, IntKeyedData>();
+		for(IntKeyedData a: A) {
 			tree.insertData(a);
 		}
 	}
@@ -27,7 +27,7 @@ public class BinarySearchTreeTest {
 		assertEquals(95, tree.getMaximumElement().getData().getKey().intValue());
 		assertEquals(1, tree.getMinimumElement().getData().getKey().intValue());
 		
-		BinaryTreeNode<Integer, SimpleSortable> element = tree.searchFirstElement(57);
+		BinaryTreeNode<Integer, IntKeyedData> element = tree.searchFirstElement(57);
 		assertEquals(72, tree.getSuccessorElement(element).getData().getKey().intValue());
 		element = tree.searchFirstElement(54);
 		assertEquals(57, tree.getSuccessorElement(element).getData().getKey().intValue());
@@ -43,35 +43,35 @@ public class BinarySearchTreeTest {
 	
 	@Test
 	public void testDeleteCase1() {
-		BinaryTreeNode<Integer, SimpleSortable> element = tree.searchFirstElement(32);
+		BinaryTreeNode<Integer, IntKeyedData> element = tree.searchFirstElement(32);
 		tree.deleteElement(element);
 		assertEquals("85(1(,57(54,83(72(,82),84(,84)))),95)", tree.toString());
 	}
 	
 	@Test
 	public void testDeleteCase2() {
-		BinaryTreeNode<Integer, SimpleSortable> element = tree.searchFirstElement(54);
+		BinaryTreeNode<Integer, IntKeyedData> element = tree.searchFirstElement(54);
 		tree.deleteElement(element);
 		assertEquals("85(1(,57(32,83(72(,82),84(,84)))),95)", tree.toString());
 	}
 	
 	@Test
 	public void testDeleteCase3() {
-		BinaryTreeNode<Integer, SimpleSortable> element = tree.searchFirstElement(72);
+		BinaryTreeNode<Integer, IntKeyedData> element = tree.searchFirstElement(72);
 		tree.deleteElement(element);
 		assertEquals("85(1(,57(54(32,),83(82,84(,84)))),95)", tree.toString());
 	}
 	
 	@Test
 	public void testDeleteCase4() {
-		BinaryTreeNode<Integer, SimpleSortable> element = tree.searchFirstElement(83);
+		BinaryTreeNode<Integer, IntKeyedData> element = tree.searchFirstElement(83);
 		tree.deleteElement(element);
 		assertEquals("85(1(,57(54(32,),84(72(,82),84))),95)", tree.toString());
 	}
 	
 	@Test
 	public void testDeleteCase5() {
-		BinaryTreeNode<Integer, SimpleSortable> element = tree.searchFirstElement(57);
+		BinaryTreeNode<Integer, IntKeyedData> element = tree.searchFirstElement(57);
 		tree.deleteElement(element);
 		assertEquals("85(1(,72(54(32,),83(82,84(,84)))),95)", tree.toString());
 	}

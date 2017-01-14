@@ -1,11 +1,11 @@
-package amazonprep.algorithms.graph.mst;
+package intro.algorithms.graph.mst;
 
 import org.junit.Test;
 
-import amazonprep.algorithms.graph.Graph;
-import amazonprep.algorithms.graph.Vertex;
-import amazonprep.algorithms.graph.WeightedEdge;
-import amazonprep.algorithms.sort.QuickSort;
+import intro.algorithms.graph.Graph;
+import intro.algorithms.graph.Vertex;
+import intro.algorithms.graph.WeightedEdge;
+import intro.algorithms.sort.QuickSort;
 
 public class KruskalTest {
 

@@ -1,18 +1,18 @@
-package amazonprep.algorithms.orderstatistics;
+package intro.algorithms.orderstatistics;
 
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
-import amazonprep.algorithms.sort.SimpleSortable;
+import intro.algorithms.sort.IntKeyedData;
 
 public class OrderStatisticsTest {
 
 	@Test
 	public void test() {
-		SimpleSortable [] A = SimpleSortable.toSimpleSortableArray(new int [] {85, 1, 57, 54, 95, 83, 84, 72, 32, 84});
+		IntKeyedData [] A = IntKeyedData.toSimpleSortableArray(new int [] {85, 1, 57, 54, 95, 83, 84, 72, 32, 84});
 		
-		OrderStatistics<Integer, SimpleSortable> os = new OrderStatistics<Integer, SimpleSortable>();
+		OrderStatistics<Integer, IntKeyedData> os = new OrderStatistics<Integer, IntKeyedData>();
 		assertEquals(1, (int)os.find(A, 0).getKey());
 		assertEquals(32, (int)os.find(A, 1).getKey());
 		assertEquals(54, (int)os.find(A, 2).getKey());

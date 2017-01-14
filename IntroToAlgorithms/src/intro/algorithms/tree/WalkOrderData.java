@@ -1,4 +1,4 @@
-package amazonprep.algorithms.tree;
+package intro.algorithms.tree;
 
 public interface WalkOrderData {
 	

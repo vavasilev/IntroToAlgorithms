@@ -1,10 +1,10 @@
-package amazonprep.algorithms.dynamic;
+package intro.algorithms.dynamic;
 
 import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import amazonprep.algorithms.dynamic.MatrixMultiplicationStrategy.MatrixMultiplicationStrategySolution;
+import intro.algorithms.dynamic.MatrixMultiplicationStrategy.MatrixMultiplicationStrategySolution;
 
 public class MatrixMultiplicationStrategyTest {
 

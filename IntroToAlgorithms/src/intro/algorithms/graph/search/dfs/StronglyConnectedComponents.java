@@ -1,11 +1,11 @@
-package amazonprep.algorithms.graph.search.dfs;
+package intro.algorithms.graph.search.dfs;
 
-import amazonprep.algorithms.graph.Edge;
-import amazonprep.algorithms.graph.Graph;
-import amazonprep.algorithms.graph.Vertex;
-import amazonprep.algorithms.graph.search.VertexColor;
-import amazonprep.datastructures.list.LinkedList;
-import amazonprep.datastructures.list.ListElement;
+import intro.algorithms.graph.Edge;
+import intro.algorithms.graph.Graph;
+import intro.algorithms.graph.Vertex;
+import intro.algorithms.graph.search.VertexColor;
+import intro.datastructures.list.LinkedList;
+import intro.datastructures.list.ListElement;
 
 public class StronglyConnectedComponents<T> extends DepthFirstSearch<T> {
 

@@ -1,13 +1,13 @@
-package amazonprep.algorithms.graph.search.dfs;
+package intro.algorithms.graph.search.dfs;
 
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
-import amazonprep.algorithms.graph.Edge;
-import amazonprep.algorithms.graph.Graph;
-import amazonprep.algorithms.graph.Vertex;
-import amazonprep.datastructures.list.LinkedList;
+import intro.algorithms.graph.Edge;
+import intro.algorithms.graph.Graph;
+import intro.algorithms.graph.Vertex;
+import intro.datastructures.list.LinkedList;
 
 public class StronglyConnectedComponentsTest {
 

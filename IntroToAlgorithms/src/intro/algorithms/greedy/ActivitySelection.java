@@ -1,9 +1,9 @@
-package amazonprep.algorithms.greedy;
+package intro.algorithms.greedy;
 
 import java.util.Arrays;
 
-import amazonprep.algorithms.sort.QuickSort;
-import amazonprep.algorithms.sort.Sortable;
+import intro.algorithms.sort.QuickSort;
+import intro.algorithms.sort.KeyedData;
 
 public class ActivitySelection {
 	
@@ -40,7 +40,7 @@ public class ActivitySelection {
 		}
 	}
 	
-	public static class Activity implements Sortable<Integer> {
+	public static class Activity implements KeyedData<Integer> {
 		private int start;
 		private int end;
 		public Activity(int start, int end) {

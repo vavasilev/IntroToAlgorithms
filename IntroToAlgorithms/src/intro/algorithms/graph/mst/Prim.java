@@ -1,19 +1,19 @@
-package amazonprep.algorithms.graph.mst;
+package intro.algorithms.graph.mst;
 
 import java.util.Arrays;
 
-import amazonprep.algorithms.graph.ArrayGraph;
-import amazonprep.algorithms.graph.Edge;
-import amazonprep.algorithms.sort.MinMaxProvider;
-import amazonprep.algorithms.sort.Sortable;
-import amazonprep.datastructures.heap.Heap;
-import amazonprep.datastructures.heap.Heap.HeapType;
+import intro.algorithms.graph.ArrayGraph;
+import intro.algorithms.graph.Edge;
+import intro.algorithms.sort.MinMaxProvider;
+import intro.algorithms.sort.KeyedData;
+import intro.datastructures.heap.Heap;
+import intro.datastructures.heap.Heap.HeapType;
 
 public class Prim<T extends Comparable<T>, U> {
 	
-	private MinMaxProvider<T, ? extends Sortable<T>> minMaxProvider;
+	private MinMaxProvider<T, ? extends KeyedData<T>> minMaxProvider;
 	
-	public Prim(MinMaxProvider<T, ? extends Sortable<T>> minMaxProvider) {
+	public Prim(MinMaxProvider<T, ? extends KeyedData<T>> minMaxProvider) {
 		this.minMaxProvider = minMaxProvider;
 	}
 

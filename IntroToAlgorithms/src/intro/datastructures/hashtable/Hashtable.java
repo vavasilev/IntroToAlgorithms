@@ -1,8 +1,8 @@
-package amazonprep.datastructures.hashtable;
+package intro.datastructures.hashtable;
 
-import amazonprep.algorithms.sort.Sortable;
+import intro.algorithms.sort.KeyedData;
 
-public abstract class Hashtable<T extends Sortable<Integer>> {
+public abstract class Hashtable<T extends KeyedData<Integer>> {
 
 	protected int capacity;
 	protected HashFunction hashFunction;

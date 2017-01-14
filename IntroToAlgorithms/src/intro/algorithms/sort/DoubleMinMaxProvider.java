@@ -1,4 +1,4 @@
-package amazonprep.algorithms.sort;
+package intro.algorithms.sort;
 
 public class DoubleMinMaxProvider implements MinMaxProvider<Double, DoubleSortable> {
 

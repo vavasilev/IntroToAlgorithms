@@ -1,4 +1,4 @@
-package amazonprep.algorithms.other;
+package intro.algorithms.other;
 
 import static org.junit.Assert.*;
 
@@ -8,7 +8,7 @@ import java.util.stream.Stream;
 
 import org.junit.Test;
 
-import amazonprep.algorithms.sort.SimpleSortable;
+import intro.algorithms.sort.IntKeyedData;
 
 public class EmitNonRepeatingNumbersTest {
 
@@ -18,7 +18,7 @@ public class EmitNonRepeatingNumbersTest {
 		
 		IntStream stream = IntStream.of(12, 33, 54, 33, 2, 5, 2, 1, 13, 12);
 		Stream<String> result = algo.emit(
-				stream.<SimpleSortable>mapToObj(num -> new SimpleSortable(num))).
+				stream.<IntKeyedData>mapToObj(num -> new IntKeyedData(num))).
 				map(sortable -> sortable.toString());
 		String resultStr = result.collect(Collectors.joining(", "));
 		assertEquals("12, 33, 54, 2, 5, 1, 13", resultStr);

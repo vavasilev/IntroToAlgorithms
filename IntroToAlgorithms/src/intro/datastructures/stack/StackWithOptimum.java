@@ -1,8 +1,8 @@
-package amazonprep.datastructures.stack;
+package intro.datastructures.stack;
 
-import amazonprep.algorithms.sort.Sortable;
+import intro.algorithms.sort.KeyedData;
 
-public class StackWithOptimum<T extends Comparable<T>, U extends Sortable<T>> extends Stack<U> {
+public class StackWithOptimum<T extends Comparable<T>, U extends KeyedData<T>> extends Stack<U> {
 	
 	public static enum StackWithOptimumType {
 		MIN, MAX

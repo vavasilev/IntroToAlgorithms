@@ -1,11 +1,11 @@
-package amazonprep.algorithms.dynamic;
+package intro.algorithms.dynamic;
 
 import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import amazonprep.algorithms.sort.StringSortable;
-import amazonprep.algorithms.tree.BinarySearchTree;
+import intro.algorithms.sort.StringKeyedData;
+import intro.algorithms.tree.BinarySearchTree;
 
 public class OptimalBSTTest {
 
@@ -17,7 +17,7 @@ public class OptimalBSTTest {
 		
 		OptimalBST optimalBST = new OptimalBST();
 		
-		BinarySearchTree<String, StringSortable> bst = optimalBST.calculate(keys, p, q, 5);
+		BinarySearchTree<String, StringKeyedData> bst = optimalBST.calculate(keys, p, q, 5);
 		
 		assertEquals("k2(k1(q0,q1),k5(k4(k3(q2,q3),q4),q5))", bst.toString());
 	}

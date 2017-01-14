@@ -1,7 +1,7 @@
-package amazonprep.algorithms.anagram;
+package intro.algorithms.anagram;
 
-import amazonprep.algorithms.tree.BinarySearchTree;
-import amazonprep.algorithms.tree.DataMerger;
+import intro.algorithms.tree.BinarySearchTree;
+import intro.algorithms.tree.DataMerger;
 
 public class AnagramBuilder {
 	

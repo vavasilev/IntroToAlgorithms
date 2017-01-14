@@ -1,9 +1,9 @@
-package amazonprep.algorithms.orderstatistics;
+package intro.algorithms.orderstatistics;
 
-import amazonprep.algorithms.sort.QuickSort;
-import amazonprep.algorithms.sort.Sortable;
+import intro.algorithms.sort.QuickSort;
+import intro.algorithms.sort.KeyedData;
 
-public class OrderStatistics<T extends Comparable<T>, U extends Sortable<T>> extends QuickSort<T, U> {
+public class OrderStatistics<T extends Comparable<T>, U extends KeyedData<T>> extends QuickSort<T, U> {
 
 	public U find(U [] A, int i) {
 		return find(A, 0, A.length - 1, i);

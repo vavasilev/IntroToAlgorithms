@@ -1,11 +1,11 @@
-package amazonprep.algorithms.tree;
+package intro.algorithms.tree;
 
 import java.util.Set;
 
-import amazonprep.algorithms.sort.Sortable;
+import intro.algorithms.sort.KeyedData;
 
-public class BinaryTreeNode<T extends Comparable<T>, U extends Sortable<T>> implements 
-		Sortable<T> {
+public class BinaryTreeNode<T extends Comparable<T>, U extends KeyedData<T>> implements 
+		KeyedData<T> {
 
 	private BinaryTreeNode<T,U> parent;
 	private BinaryTreeNode<T,U> left;

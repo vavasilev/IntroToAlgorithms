@@ -1,15 +1,15 @@
-package amazonprep.algorithms.other;
+package intro.algorithms.other;
 
 import java.util.stream.Stream;
 
-import amazonprep.algorithms.sort.SimpleSortable;
-import amazonprep.datastructures.hashtable.Hashtable;
-import amazonprep.datastructures.hashtable.LinkedListHashtable;
+import intro.algorithms.sort.IntKeyedData;
+import intro.datastructures.hashtable.Hashtable;
+import intro.datastructures.hashtable.LinkedListHashtable;
 
 public class EmitNonRepeatingNumbers {
 
-	public Stream<SimpleSortable> emit(Stream<SimpleSortable> input) {
-		Hashtable<SimpleSortable> table = new LinkedListHashtable<>(1000);
+	public Stream<IntKeyedData> emit(Stream<IntKeyedData> input) {
+		Hashtable<IntKeyedData> table = new LinkedListHashtable<>(1000);
 		return input.filter(num -> {
 			if(table.getData(num.getKey()) != null) {
 				return false;

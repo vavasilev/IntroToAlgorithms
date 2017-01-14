@@ -1,19 +1,19 @@
-package amazonprep.algorithms.tree;
+package intro.algorithms.tree;
 
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Before;
 import org.junit.Test;
 
-import amazonprep.algorithms.sort.SimpleSortable;
+import intro.algorithms.sort.IntKeyedData;
 
 public class BinaryTreeTest {
 	StringBuilder sb = new StringBuilder();
 	
-	BinaryTreeVisitor<Integer, SimpleSortable> visitor = new BinaryTreeVisitor<Integer, SimpleSortable>() {
+	BinaryTreeVisitor<Integer, IntKeyedData> visitor = new BinaryTreeVisitor<Integer, IntKeyedData>() {
 		int level = 0;
 		@Override
-		public void visit(BinaryTreeNode<Integer, SimpleSortable> node, WalkOrder order,
+		public void visit(BinaryTreeNode<Integer, IntKeyedData> node, WalkOrder order,
 				WalkOrderData data) {
 			if(level != ((LevelWalkOrderData)data).getLevel()) {
 				level = ((LevelWalkOrderData)data).getLevel();
@@ -22,14 +22,14 @@ public class BinaryTreeTest {
 			sb.append(node.getData().toString()+" ");
 		}};
 
-	BinarySearchTree<Integer, SimpleSortable> tree;
+	BinarySearchTree<Integer, IntKeyedData> tree;
 	
 	@Before
 	public void prepareTree() {
-		SimpleSortable [] A = SimpleSortable.toSimpleSortableArray(new int [] {85, 1, 57, 54, 95, 83, 84, 72, 82, 32, 84});
+		IntKeyedData [] A = IntKeyedData.toSimpleSortableArray(new int [] {85, 1, 57, 54, 95, 83, 84, 72, 82, 32, 84});
 		
-		tree = new BinarySearchTree<Integer, SimpleSortable>();
-		for(SimpleSortable a: A) {
+		tree = new BinarySearchTree<Integer, IntKeyedData>();
+		for(IntKeyedData a: A) {
 			tree.insertData(a);
 		}
 	}

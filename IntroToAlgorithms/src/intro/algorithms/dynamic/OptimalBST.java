@@ -1,12 +1,12 @@
-package amazonprep.algorithms.dynamic;
+package intro.algorithms.dynamic;
 
-import amazonprep.algorithms.sort.StringSortable;
-import amazonprep.algorithms.tree.BinarySearchTree;
-import amazonprep.algorithms.tree.BinaryTreeNode;
+import intro.algorithms.sort.StringKeyedData;
+import intro.algorithms.tree.BinarySearchTree;
+import intro.algorithms.tree.BinaryTreeNode;
 
 public class OptimalBST {
 	
-	public BinarySearchTree<String, StringSortable> calculate(String [] keys, double [] p, double [] q, int num) {
+	public BinarySearchTree<String, StringKeyedData> calculate(String [] keys, double [] p, double [] q, int num) {
 		
 		double [][] e = new double [num+2][num+2];
 		double [][] w = new double [num+2][num+2];
@@ -33,33 +33,33 @@ public class OptimalBST {
 			}
 		}
 		
-		BinaryTreeNode<String, StringSortable> rootNode = new BinaryTreeNode<String, StringSortable>();
+		BinaryTreeNode<String, StringKeyedData> rootNode = new BinaryTreeNode<String, StringKeyedData>();
 		addKey(keys, root, 1, num, rootNode);
 		
-		BinarySearchTree<String, StringSortable> bst = new BinarySearchTree<String, StringSortable>();
+		BinarySearchTree<String, StringKeyedData> bst = new BinarySearchTree<String, StringKeyedData>();
 		bst.setRoot(rootNode);
 		
 		return bst;
 	}
 	
-	private void addKey(String [] keys, int [][] root, int i, int j, BinaryTreeNode<String, StringSortable> node) {
+	private void addKey(String [] keys, int [][] root, int i, int j, BinaryTreeNode<String, StringKeyedData> node) {
 		if(j < i) {
-			node.setData(new StringSortable("q"+j));
+			node.setData(new StringKeyedData("q"+j));
 			return;
 		}
 		
 		int r = root[i][j];
-		node.setData(new StringSortable(keys[r]));
+		node.setData(new StringKeyedData(keys[r]));
 		
 		if(r >= i) {
-			BinaryTreeNode<String, StringSortable> nodeL = new BinaryTreeNode<String, StringSortable>();
+			BinaryTreeNode<String, StringKeyedData> nodeL = new BinaryTreeNode<String, StringKeyedData>();
 			node.setLeft(nodeL);
 			nodeL.setParent(node);
 			addKey(keys, root, i, r-1, nodeL);
 		}
 		
 		if(r <= j) {
-			BinaryTreeNode<String, StringSortable> nodeR= new BinaryTreeNode<String, StringSortable>();
+			BinaryTreeNode<String, StringKeyedData> nodeR= new BinaryTreeNode<String, StringKeyedData>();
 			node.setRight(nodeR);
 			nodeR.setParent(node);
 			addKey(keys, root, r+1, j, nodeR);

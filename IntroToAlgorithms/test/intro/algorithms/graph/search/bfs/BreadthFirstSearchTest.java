@@ -1,12 +1,12 @@
-package amazonprep.algorithms.graph.search.bfs;
+package intro.algorithms.graph.search.bfs;
 
 import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import amazonprep.algorithms.graph.Edge;
-import amazonprep.algorithms.graph.search.bfs.BFSVertex;
-import amazonprep.algorithms.graph.search.bfs.BreadthFirstSearch;
+import intro.algorithms.graph.Edge;
+import intro.algorithms.graph.search.bfs.BFSVertex;
+import intro.algorithms.graph.search.bfs.BreadthFirstSearch;
 
 public class BreadthFirstSearchTest {
 

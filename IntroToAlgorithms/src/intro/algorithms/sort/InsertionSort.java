@@ -1,6 +1,6 @@
-package amazonprep.algorithms.sort;
+package intro.algorithms.sort;
 
-public class InsertionSort<T extends Comparable<T>, U extends Sortable<T>> implements SortingAlgorithm<T, U> {
+public class InsertionSort<T extends Comparable<T>, U extends KeyedData<T>> implements SortingAlgorithm<T, U> {
 
 	@Override
 	public U[] sort(U[] A) {

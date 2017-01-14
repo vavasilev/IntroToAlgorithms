@@ -1,9 +1,9 @@
-package amazonprep.algorithms.sort;
+package intro.algorithms.sort;
 
-import amazonprep.algorithms.tree.BinarySearchTree;
-import amazonprep.datastructures.list.LinkedList;
+import intro.algorithms.tree.BinarySearchTree;
+import intro.datastructures.list.LinkedList;
 
-public class BSTSort<T extends Comparable<T>, U extends Sortable<T>> implements SortingAlgorithm<T,U> {
+public class BSTSort<T extends Comparable<T>, U extends KeyedData<T>> implements SortingAlgorithm<T,U> {
 
 	@Override
 	public U[] sort(U[] A) {

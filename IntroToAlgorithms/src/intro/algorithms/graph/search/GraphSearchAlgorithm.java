@@ -1,4 +1,4 @@
-package amazonprep.algorithms.graph.search;
+package intro.algorithms.graph.search;
 
 public class GraphSearchAlgorithm<T> {
 	

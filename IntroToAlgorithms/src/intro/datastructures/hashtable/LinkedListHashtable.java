@@ -1,10 +1,10 @@
-package amazonprep.datastructures.hashtable;
+package intro.datastructures.hashtable;
 
-import amazonprep.algorithms.sort.Sortable;
-import amazonprep.datastructures.list.ListElement;
-import amazonprep.datastructures.list.SearchableLinkedList;
+import intro.algorithms.sort.KeyedData;
+import intro.datastructures.list.ListElement;
+import intro.datastructures.list.SearchableLinkedList;
 
-public class LinkedListHashtable<T extends Sortable<Integer>> extends Hashtable<T> {
+public class LinkedListHashtable<T extends KeyedData<Integer>> extends Hashtable<T> {
 
 	private SearchableLinkedList<Integer, T> [] slots;
 	

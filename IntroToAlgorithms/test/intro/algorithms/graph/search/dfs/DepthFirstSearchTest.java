@@ -1,12 +1,12 @@
-package amazonprep.algorithms.graph.search.dfs;
+package intro.algorithms.graph.search.dfs;
 
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
-import amazonprep.algorithms.graph.Edge;
-import amazonprep.algorithms.graph.Graph;
-import amazonprep.algorithms.graph.Vertex;
+import intro.algorithms.graph.Edge;
+import intro.algorithms.graph.Graph;
+import intro.algorithms.graph.Vertex;
 
 public class DepthFirstSearchTest {
 

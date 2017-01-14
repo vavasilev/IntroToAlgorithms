@@ -1,25 +1,25 @@
-package amazonprep.datastructures.list;
+package intro.datastructures.list;
 
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
-import amazonprep.algorithms.sort.SimpleSortable;
+import intro.algorithms.sort.IntKeyedData;
 
 public class LinkedListTest {
 
 	@Test
 	public void test() {
-		SimpleSortable [] A = SimpleSortable.toSimpleSortableArray(new int [] {85, 1, 57, 54, 95, 83, 84, 72, 32, 84});
+		IntKeyedData [] A = IntKeyedData.toSimpleSortableArray(new int [] {85, 1, 57, 54, 95, 83, 84, 72, 32, 84});
 		
-		SearchableLinkedList<Integer, SimpleSortable> list = new SearchableLinkedList<Integer, SimpleSortable>();
-		for(SimpleSortable a: A) {
+		SearchableLinkedList<Integer, IntKeyedData> list = new SearchableLinkedList<Integer, IntKeyedData>();
+		for(IntKeyedData a: A) {
 			list.insertData(a);
 		}
 		
 		assertEquals("84, 32, 72, 84, 83, 95, 54, 57, 1, 85", list.toString());
 		
-		ListElement<SimpleSortable> elm = list.searchFirstElement(95);
+		ListElement<IntKeyedData> elm = list.searchFirstElement(95);
 		list.deleteElement(elm);
 		
 		assertEquals("84, 32, 72, 84, 83, 54, 57, 1, 85", list.toString());
@@ -27,19 +27,19 @@ public class LinkedListTest {
 	
 	@Test
 	public void testUnion() {
-		SimpleSortable [] A = SimpleSortable.toSimpleSortableArray(new int [] {85, 1, 57, 54, 95, 83, 84, 72, 32, 84});
+		IntKeyedData [] A = IntKeyedData.toSimpleSortableArray(new int [] {85, 1, 57, 54, 95, 83, 84, 72, 32, 84});
 		
-		SimpleSortable [] B = SimpleSortable.toSimpleSortableArray(new int [] {85, 1, 57, 54, 95, 83, 84, 72, 32, 84});
+		IntKeyedData [] B = IntKeyedData.toSimpleSortableArray(new int [] {85, 1, 57, 54, 95, 83, 84, 72, 32, 84});
 		
-		SearchableLinkedList<Integer, SimpleSortable> list1 = new SearchableLinkedList<Integer, SimpleSortable>();
-		for(SimpleSortable a: A) {
+		SearchableLinkedList<Integer, IntKeyedData> list1 = new SearchableLinkedList<Integer, IntKeyedData>();
+		for(IntKeyedData a: A) {
 			list1.insertData(a);
 		}
 		
 		assertEquals("84, 32, 72, 84, 83, 95, 54, 57, 1, 85", list1.toString());
 		
-		SearchableLinkedList<Integer, SimpleSortable> list2 = new SearchableLinkedList<Integer, SimpleSortable>();
-		for(SimpleSortable b: B) {
+		SearchableLinkedList<Integer, IntKeyedData> list2 = new SearchableLinkedList<Integer, IntKeyedData>();
+		for(IntKeyedData b: B) {
 			list2.insertData(b);
 		}
 		assertEquals("84, 32, 72, 84, 83, 95, 54, 57, 1, 85", list2.toString());
@@ -51,10 +51,10 @@ public class LinkedListTest {
 	
 	@Test
 	public void testReverseKElements3() {
-		SimpleSortable [] A = SimpleSortable.toSimpleSortableArray(new int [] {8, 7, 6, 5, 4, 3, 2, 1});
+		IntKeyedData [] A = IntKeyedData.toSimpleSortableArray(new int [] {8, 7, 6, 5, 4, 3, 2, 1});
 		
-		SearchableLinkedList<Integer, SimpleSortable> list = new SearchableLinkedList<Integer, SimpleSortable>();
-		for(SimpleSortable a: A) {
+		SearchableLinkedList<Integer, IntKeyedData> list = new SearchableLinkedList<Integer, IntKeyedData>();
+		for(IntKeyedData a: A) {
 			list.insertData(a);
 		}
 		
@@ -65,10 +65,10 @@ public class LinkedListTest {
 	
 	@Test
 	public void testReverseKElements5() {
-		SimpleSortable [] A = SimpleSortable.toSimpleSortableArray(new int [] {8, 7, 6, 5, 4, 3, 2, 1});
+		IntKeyedData [] A = IntKeyedData.toSimpleSortableArray(new int [] {8, 7, 6, 5, 4, 3, 2, 1});
 		
-		SearchableLinkedList<Integer, SimpleSortable> list = new SearchableLinkedList<Integer, SimpleSortable>();
-		for(SimpleSortable a: A) {
+		SearchableLinkedList<Integer, IntKeyedData> list = new SearchableLinkedList<Integer, IntKeyedData>();
+		for(IntKeyedData a: A) {
 			list.insertData(a);
 		}
 		

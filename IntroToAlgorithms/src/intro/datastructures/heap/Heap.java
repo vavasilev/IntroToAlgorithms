@@ -1,10 +1,10 @@
-package amazonprep.datastructures.heap;
+package intro.datastructures.heap;
 
-import amazonprep.algorithms.sort.MinMaxProvider;
-import amazonprep.algorithms.sort.Sortable;
-import amazonprep.algorithms.sort.Util;
+import intro.algorithms.sort.MinMaxProvider;
+import intro.algorithms.sort.KeyedData;
+import intro.algorithms.sort.Util;
 
-public class Heap<T extends Comparable<T>, U extends Sortable<T>> {
+public class Heap<T extends Comparable<T>, U extends KeyedData<T>> {
 	
 	public static enum HeapType {
 		MIN, MAX
@@ -129,7 +129,7 @@ public class Heap<T extends Comparable<T>, U extends Sortable<T>> {
 		}
 	}
 	
-	public void insert(U element, MinMaxProvider<T, ? extends Sortable<T>> minMaxProvider) {
+	public void insert(U element, MinMaxProvider<T, ? extends KeyedData<T>> minMaxProvider) {
 		length++;
 		T oldKey = element.getKey();
 		element.setKey(heapType == HeapType.MAX ? minMaxProvider.getMinKey() : minMaxProvider.getMaxKey());

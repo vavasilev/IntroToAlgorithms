@@ -1,9 +1,9 @@
-package amazonprep.algorithms.graph.cover;
+package intro.algorithms.graph.cover;
 
-import amazonprep.algorithms.graph.Edge;
-import amazonprep.algorithms.graph.Graph;
-import amazonprep.algorithms.graph.Vertex;
-import amazonprep.datastructures.list.LinkedList;
+import intro.algorithms.graph.Edge;
+import intro.algorithms.graph.Graph;
+import intro.algorithms.graph.Vertex;
+import intro.datastructures.list.LinkedList;
 
 public class ApproximateVertexCover<T> {
 

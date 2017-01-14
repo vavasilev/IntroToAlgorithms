@@ -1,4 +1,4 @@
-package amazonprep.datastructures.queue;
+package intro.datastructures.queue;
 
 
 public class Queue<T> {

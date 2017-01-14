@@ -1,8 +1,8 @@
-package amazonprep.algorithms.sort;
+package intro.algorithms.sort;
 
-import amazonprep.datastructures.heap.Heap;
+import intro.datastructures.heap.Heap;
 
-public class HeapSort<T extends Comparable<T>, U extends Sortable<T>> implements SortingAlgorithm<T, U> {
+public class HeapSort<T extends Comparable<T>, U extends KeyedData<T>> implements SortingAlgorithm<T, U> {
 
 	@Override
 	public U[] sort(U[] A) {

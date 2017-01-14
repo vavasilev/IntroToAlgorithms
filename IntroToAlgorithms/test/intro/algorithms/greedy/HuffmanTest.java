@@ -1,14 +1,14 @@
-package amazonprep.algorithms.greedy;
+package intro.algorithms.greedy;
 
 import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import amazonprep.algorithms.greedy.Huffman.CharacterCode;
-import amazonprep.algorithms.greedy.Huffman.CharacterFrequency;
-import amazonprep.algorithms.sort.IntMinMaxProvider;
-import amazonprep.algorithms.tree.BinaryTree;
-import amazonprep.algorithms.tree.BinaryTreeNode;
+import intro.algorithms.greedy.Huffman.CharacterCode;
+import intro.algorithms.greedy.Huffman.CharacterFrequency;
+import intro.algorithms.sort.IntMinMaxProvider;
+import intro.algorithms.tree.BinaryTree;
+import intro.algorithms.tree.BinaryTreeNode;
 
 public class HuffmanTest {
 

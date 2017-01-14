@@ -1,6 +1,6 @@
-package amazonprep.algorithms.graph.search;
+package intro.algorithms.graph.search;
 
-import amazonprep.algorithms.graph.Vertex;
+import intro.algorithms.graph.Vertex;
 
 public class SearchVertex<T> extends Vertex<T> {
 

@@ -1,6 +1,6 @@
-package amazonprep.algorithms.sort;
+package intro.algorithms.sort;
 
-public class DoubleSortable implements Sortable<Double> {
+public class DoubleSortable implements KeyedData<Double> {
 	double key;
 	
 	public DoubleSortable(double key) {

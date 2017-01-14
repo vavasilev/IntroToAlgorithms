@@ -1,10 +1,10 @@
-package amazonprep.algorithms.sort;
+package intro.algorithms.sort;
 
-public class SimpleSortable implements Sortable<Integer> {
+public class IntKeyedData implements KeyedData<Integer> {
 
 	int key;
 	
-	public SimpleSortable(int key) {
+	public IntKeyedData(int key) {
 		this.key = key;
 	}
 	
@@ -18,10 +18,10 @@ public class SimpleSortable implements Sortable<Integer> {
 		this.key = key;
 	}
 
-	public static SimpleSortable [] toSimpleSortableArray(int [] A) {
-		SimpleSortable [] result = new SimpleSortable [A.length];
+	public static IntKeyedData [] toSimpleSortableArray(int [] A) {
+		IntKeyedData [] result = new IntKeyedData [A.length];
 		for(int i=0; i< A.length; i++) {
-			result[i] = new SimpleSortable(A[i]);
+			result[i] = new IntKeyedData(A[i]);
 		}
 		
 		return result;

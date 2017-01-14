@@ -1,8 +1,8 @@
-package amazonprep.algorithms.graph;
+package intro.algorithms.graph;
 
-import amazonprep.algorithms.sort.Sortable;
+import intro.algorithms.sort.KeyedData;
 
-public class WeightedEdge<T extends Comparable<T>, U> extends Edge<U> implements Sortable<T> {
+public class WeightedEdge<T extends Comparable<T>, U> extends Edge<U> implements KeyedData<T> {
 	private T weight;
 	
 	public WeightedEdge(Vertex<U> start, Vertex<U> end, T weight) {

@@ -1,10 +1,10 @@
-package amazonprep.algorithms.greedy;
+package intro.algorithms.greedy;
 
 import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import amazonprep.algorithms.greedy.ActivitySelection.ActivitySelectionSolution;
+import intro.algorithms.greedy.ActivitySelection.ActivitySelectionSolution;
 
 public class ActivitySelectionTest {
 

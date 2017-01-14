@@ -1,9 +1,9 @@
-package amazonprep.algorithms.sort;
+package intro.algorithms.sort;
 
-public class StringSortable implements Sortable<String> {
+public class StringKeyedData implements KeyedData<String> {
 	String key;
 	
-	public StringSortable(String key) {
+	public StringKeyedData(String key) {
 		this.key = key;
 	}
 	
@@ -17,10 +17,10 @@ public class StringSortable implements Sortable<String> {
 		this.key = key;
 	}
 
-	public static StringSortable [] toStringSortableArray(String [] A) {
-		StringSortable [] result = new StringSortable [A.length];
+	public static StringKeyedData [] toStringSortableArray(String [] A) {
+		StringKeyedData [] result = new StringKeyedData [A.length];
 		for(int i=0; i< A.length; i++) {
-			result[i] = new StringSortable(A[i]);
+			result[i] = new StringKeyedData(A[i]);
 		}
 		
 		return result;

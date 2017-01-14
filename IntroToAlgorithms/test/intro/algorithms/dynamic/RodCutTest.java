@@ -1,4 +1,4 @@
-package amazonprep.algorithms.dynamic;
+package intro.algorithms.dynamic;
 
 import static org.junit.Assert.*;
 
@@ -6,7 +6,7 @@ import java.util.Arrays;
 
 import org.junit.Test;
 
-import amazonprep.algorithms.dynamic.RodCut.RodCutSolution;
+import intro.algorithms.dynamic.RodCut.RodCutSolution;
 
 public class RodCutTest {
 

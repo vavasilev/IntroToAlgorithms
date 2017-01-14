@@ -1,8 +1,8 @@
-package amazonprep.algorithms.tree;
+package intro.algorithms.tree;
 
-import amazonprep.algorithms.sort.Sortable;
+import intro.algorithms.sort.KeyedData;
 
-public class BinaryTreeNodeAndLevel<T extends Comparable<T>, U extends Sortable<T>> {
+public class BinaryTreeNodeAndLevel<T extends Comparable<T>, U extends KeyedData<T>> {
 	private BinaryTreeNode<T,U> node;
 	private int level;
 	

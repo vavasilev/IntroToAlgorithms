@@ -1,4 +1,4 @@
-package amazonprep.algorithms.graph;
+package intro.algorithms.graph;
 
 public class Edge<T> {
 

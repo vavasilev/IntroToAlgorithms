@@ -1,7 +1,7 @@
-package amazonprep.algorithms.sort;
+package intro.algorithms.sort;
 
 public class IntMinMaxProvider implements
-	MinMaxProvider<Integer, SimpleSortable> {
+	MinMaxProvider<Integer, IntKeyedData> {
 
 	@Override
 	public Integer getMinKey() {
@@ -14,13 +14,13 @@ public class IntMinMaxProvider implements
 	}
 
 	@Override
-	public SimpleSortable getMinSortable() {
-		return new SimpleSortable(getMinKey());
+	public IntKeyedData getMinSortable() {
+		return new IntKeyedData(getMinKey());
 	}
 
 	@Override
-	public SimpleSortable getMaxSortable() {
-		return new SimpleSortable(getMaxKey());
+	public IntKeyedData getMaxSortable() {
+		return new IntKeyedData(getMaxKey());
 	}
 
 }

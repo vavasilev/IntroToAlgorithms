@@ -1,4 +1,4 @@
-package amazonprep.algorithms.anagram;
+package intro.algorithms.anagram;
 
 import static org.junit.Assert.*;
 

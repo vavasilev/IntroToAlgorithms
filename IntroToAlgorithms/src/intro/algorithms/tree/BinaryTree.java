@@ -1,14 +1,14 @@
-package amazonprep.algorithms.tree;
+package intro.algorithms.tree;
 
 import java.util.HashSet;
 import java.util.Set;
 
-import amazonprep.algorithms.sort.Sortable;
-import amazonprep.algorithms.tree.WalkOrder;
-import amazonprep.datastructures.queue.Queue;
-import amazonprep.datastructures.stack.Stack;
+import intro.algorithms.sort.KeyedData;
+import intro.algorithms.tree.WalkOrder;
+import intro.datastructures.queue.Queue;
+import intro.datastructures.stack.Stack;
 
-public class BinaryTree<T extends Comparable<T>, U extends Sortable<T>> {
+public class BinaryTree<T extends Comparable<T>, U extends KeyedData<T>> {
 
 	private BinaryTreeNode<T,U> root;
 

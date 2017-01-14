@@ -1,10 +1,10 @@
-package amazonprep.algorithms.tree;
+package intro.algorithms.tree;
 
-import amazonprep.algorithms.sort.Sortable;
-import amazonprep.algorithms.tree.WalkOrder;
-import amazonprep.datastructures.list.LinkedList;
+import intro.algorithms.sort.KeyedData;
+import intro.algorithms.tree.WalkOrder;
+import intro.datastructures.list.LinkedList;
 
-public class BinarySearchTree<T extends Comparable<T>, U extends Sortable<T>> extends BinaryTree<T,U> {
+public class BinarySearchTree<T extends Comparable<T>, U extends KeyedData<T>> extends BinaryTree<T,U> {
 
 	private DataMerger<U> dataMerger;
 	

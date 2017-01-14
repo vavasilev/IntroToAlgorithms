@@ -1,9 +1,9 @@
-package amazonprep.algorithms.graph.mst;
+package intro.algorithms.graph.mst;
 
 import org.junit.Test;
 
-import amazonprep.algorithms.graph.ArrayGraph;
-import amazonprep.algorithms.sort.DoubleMinMaxProvider;
+import intro.algorithms.graph.ArrayGraph;
+import intro.algorithms.sort.DoubleMinMaxProvider;
 
 public class PrimTest {
 	

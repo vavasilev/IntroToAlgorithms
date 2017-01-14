@@ -1,4 +1,4 @@
-package amazonprep.datastructures.set;
+package intro.datastructures.set;
 
 import static org.junit.Assert.*;
 

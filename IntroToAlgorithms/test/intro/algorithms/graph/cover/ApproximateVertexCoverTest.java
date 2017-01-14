@@ -1,16 +1,16 @@
-package amazonprep.algorithms.graph.cover;
+package intro.algorithms.graph.cover;
 
 import static org.junit.Assert.*;
 
 import org.junit.Before;
 import org.junit.Test;
 
-import amazonprep.algorithms.graph.Edge;
-import amazonprep.algorithms.graph.Graph;
-import amazonprep.algorithms.graph.Vertex;
-import amazonprep.algorithms.graph.search.dfs.DFSEdge;
-import amazonprep.algorithms.graph.search.dfs.DFSVertex;
-import amazonprep.datastructures.list.LinkedList;
+import intro.algorithms.graph.Edge;
+import intro.algorithms.graph.Graph;
+import intro.algorithms.graph.Vertex;
+import intro.algorithms.graph.search.dfs.DFSEdge;
+import intro.algorithms.graph.search.dfs.DFSVertex;
+import intro.datastructures.list.LinkedList;
 
 public class ApproximateVertexCoverTest {
 	

@@ -1,4 +1,4 @@
-package amazonprep.algorithms.sort;
+package intro.algorithms.sort;
 
 import static org.junit.Assert.fail;
 
@@ -12,29 +12,29 @@ import org.junit.Test;
 
 public class SortingAlgorithmTest {
 	
-	private static List<SimpleSortable[]> evenlyDistributedDataList;
-	private static List<SimpleSortable[]> sortedAscDataList;
-	private static List<SimpleSortable[]> sortedDescDataList;
+	private static List<IntKeyedData[]> evenlyDistributedDataList;
+	private static List<IntKeyedData[]> sortedAscDataList;
+	private static List<IntKeyedData[]> sortedDescDataList;
 	
-	private List<SimpleSortable[]> dataList;
+	private List<IntKeyedData[]> dataList;
 	
 	@BeforeClass
 	public static void setupClass() {
-		evenlyDistributedDataList = new ArrayList<SimpleSortable[]>();
+		evenlyDistributedDataList = new ArrayList<IntKeyedData[]>();
 		evenlyDistributedDataList.add(setupEvenlyDistributedData(10));
 		evenlyDistributedDataList.add(setupEvenlyDistributedData(10000));
 		evenlyDistributedDataList.add(setupEvenlyDistributedData(100000));
 		evenlyDistributedDataList.add(setupEvenlyDistributedData(1000000));
 		evenlyDistributedDataList.add(setupEvenlyDistributedData(10000000));
 		
-		sortedAscDataList = new ArrayList<SimpleSortable[]>();
+		sortedAscDataList = new ArrayList<IntKeyedData[]>();
 		sortedAscDataList.add(setupSortedData(10, true));
 		sortedAscDataList.add(setupSortedData(10000, true));
 		sortedAscDataList.add(setupSortedData(100000, true));
 		sortedAscDataList.add(setupSortedData(1000000, true));
 		sortedAscDataList.add(setupSortedData(10000000, true));
 		
-		sortedDescDataList = new ArrayList<SimpleSortable[]>();
+		sortedDescDataList = new ArrayList<IntKeyedData[]>();
 		sortedDescDataList.add(setupSortedData(10, false));
 		sortedDescDataList.add(setupSortedData(10000, false));
 		sortedDescDataList.add(setupSortedData(100000, false));
@@ -49,8 +49,8 @@ public class SortingAlgorithmTest {
 	
 	@Test
 	public void testBSTSort() {
-		SortingAlgorithm<Integer, SimpleSortable> algorithm = new BSTSort<Integer, SimpleSortable>();
-		SimpleSortable [] data = Arrays.copyOf(dataList.get(0), dataList.get(0).length);
+		SortingAlgorithm<Integer, IntKeyedData> algorithm = new BSTSort<Integer, IntKeyedData>();
+		IntKeyedData [] data = Arrays.copyOf(dataList.get(0), dataList.get(0).length);
 		System.out.print("Array before: ");
 		printArray(data);
 		System.out.println();
@@ -71,8 +71,8 @@ public class SortingAlgorithmTest {
 	
 	@Test
 	public void testQuickSort() {
-		SortingAlgorithm<Integer, SimpleSortable> algorithm = new QuickSort<Integer, SimpleSortable>();
-		SimpleSortable [] data = Arrays.copyOf(dataList.get(0), dataList.get(0).length);
+		SortingAlgorithm<Integer, IntKeyedData> algorithm = new QuickSort<Integer, IntKeyedData>();
+		IntKeyedData [] data = Arrays.copyOf(dataList.get(0), dataList.get(0).length);
 		System.out.print("Array before: ");
 		printArray(data);
 		System.out.println();
@@ -93,8 +93,8 @@ public class SortingAlgorithmTest {
 	
 	@Test
 	public void testHeapSort() {
-		SortingAlgorithm<Integer, SimpleSortable> algorithm = new HeapSort<Integer, SimpleSortable>();
-		SimpleSortable [] data = Arrays.copyOf(dataList.get(0), dataList.get(0).length);
+		SortingAlgorithm<Integer, IntKeyedData> algorithm = new HeapSort<Integer, IntKeyedData>();
+		IntKeyedData [] data = Arrays.copyOf(dataList.get(0), dataList.get(0).length);
 		System.out.print("Array before: ");
 		printArray(data);
 		System.out.println();
@@ -115,9 +115,9 @@ public class SortingAlgorithmTest {
 	
 	@Test
 	public void testMergeSort() {
-		SortingAlgorithm<Integer, SimpleSortable> algorithm = 
-				new MergeSort<Integer, SimpleSortable>(new IntMinMaxProvider());
-		SimpleSortable [] data = Arrays.copyOf(dataList.get(0), dataList.get(0).length);
+		SortingAlgorithm<Integer, IntKeyedData> algorithm = 
+				new MergeSort<Integer, IntKeyedData>(new IntMinMaxProvider());
+		IntKeyedData [] data = Arrays.copyOf(dataList.get(0), dataList.get(0).length);
 		System.out.print("Array before: ");
 		printArray(data);
 		System.out.println();
@@ -138,8 +138,8 @@ public class SortingAlgorithmTest {
 	
 	@Test
 	public void testInsertionSort() {
-		SortingAlgorithm<Integer, SimpleSortable> algorithm = new InsertionSort<Integer, SimpleSortable>();
-		SimpleSortable [] data = Arrays.copyOf(dataList.get(0), dataList.get(0).length);
+		SortingAlgorithm<Integer, IntKeyedData> algorithm = new InsertionSort<Integer, IntKeyedData>();
+		IntKeyedData [] data = Arrays.copyOf(dataList.get(0), dataList.get(0).length);
 		System.out.print("Array before: ");
 		printArray(data);
 		System.out.println();
@@ -156,7 +156,7 @@ public class SortingAlgorithmTest {
 		System.out.println();
 	}
 	
-	private void testSortingAlgorithm(SortingAlgorithm<Integer, SimpleSortable> algorithm, SimpleSortable [] data) {
+	private void testSortingAlgorithm(SortingAlgorithm<Integer, IntKeyedData> algorithm, IntKeyedData [] data) {
 		long start = System.currentTimeMillis();
 		data = algorithm.sort(data);
 		long end = System.currentTimeMillis();
@@ -168,27 +168,27 @@ public class SortingAlgorithmTest {
 		}
 	}
 
-	public static SimpleSortable [] setupEvenlyDistributedData(int length) {
-		SimpleSortable [] result = new SimpleSortable [length];
+	public static IntKeyedData [] setupEvenlyDistributedData(int length) {
+		IntKeyedData [] result = new IntKeyedData [length];
 		
 		for(int i = 0; i<length; i++) {
-			result[i] = new SimpleSortable((int)((double)length*Math.random()*10.0));
+			result[i] = new IntKeyedData((int)((double)length*Math.random()*10.0));
 		}
 		
 		return result;
 	}
 	
-	private static SimpleSortable [] setupSortedData(int length, boolean asc) {
-		SimpleSortable [] result = new SimpleSortable [length];
+	private static IntKeyedData [] setupSortedData(int length, boolean asc) {
+		IntKeyedData [] result = new IntKeyedData [length];
 		
 		for(int i = 0; i<length; i++) {
-			result[i] = new SimpleSortable(asc ? i : length - i - 1);
+			result[i] = new IntKeyedData(asc ? i : length - i - 1);
 		}
 		
 		return result;
 	}
 	
-	private void printArray(SimpleSortable [] data) {
+	private void printArray(IntKeyedData [] data) {
 		for(int i=0; i<data.length-1; i++) {
 			System.out.print(data[i]+", ");
 		}

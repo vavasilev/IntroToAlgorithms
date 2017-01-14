@@ -1,6 +1,6 @@
-package amazonprep.algorithms.graph.search.bfs;
+package intro.algorithms.graph.search.bfs;
 
-import amazonprep.algorithms.graph.search.SearchVertex;
+import intro.algorithms.graph.search.SearchVertex;
 
 public class BFSVertex<T> extends SearchVertex<T> {
 

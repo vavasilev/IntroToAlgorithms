@@ -1,8 +1,8 @@
-package amazonprep.algorithms.tree;
+package intro.algorithms.tree;
 
-import amazonprep.algorithms.sort.Sortable;
+import intro.algorithms.sort.KeyedData;
 
-public interface BinaryTreeVisitor<T extends Comparable<T>, U extends Sortable<T>> {
+public interface BinaryTreeVisitor<T extends Comparable<T>, U extends KeyedData<T>> {
 
 	void visit(BinaryTreeNode<T,U> node, WalkOrder order, WalkOrderData data);
 }

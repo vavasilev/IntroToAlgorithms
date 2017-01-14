@@ -1,4 +1,4 @@
-package amazonprep.datastructures.list;
+package intro.datastructures.list;
 
 import java.util.Iterator;
 

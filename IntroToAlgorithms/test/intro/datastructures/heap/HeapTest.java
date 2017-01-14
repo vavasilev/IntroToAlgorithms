@@ -1,4 +1,4 @@
-package amazonprep.datastructures.heap;
+package intro.datastructures.heap;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
@@ -7,20 +7,20 @@ import java.util.Arrays;
 
 import org.junit.Test;
 
-import amazonprep.algorithms.sort.IntMinMaxProvider;
-import amazonprep.algorithms.sort.MinMaxProvider;
-import amazonprep.algorithms.sort.SimpleSortable;
-import amazonprep.datastructures.heap.Heap.HeapType;
+import intro.algorithms.sort.IntMinMaxProvider;
+import intro.algorithms.sort.MinMaxProvider;
+import intro.algorithms.sort.IntKeyedData;
+import intro.datastructures.heap.Heap.HeapType;
 
 public class HeapTest {
 	
-	MinMaxProvider<Integer, SimpleSortable> minMaxProvider = new IntMinMaxProvider();
+	MinMaxProvider<Integer, IntKeyedData> minMaxProvider = new IntMinMaxProvider();
 
 	@Test
 	public void testMaxHeap() {
-		SimpleSortable [] data = SimpleSortable.toSimpleSortableArray(new int [] {14, 47, 83, 99, 24, 29, 14, 0, 41, 93});
+		IntKeyedData [] data = IntKeyedData.toSimpleSortableArray(new int [] {14, 47, 83, 99, 24, 29, 14, 0, 41, 93});
 		
-		Heap<Integer, SimpleSortable> h = new Heap<Integer, SimpleSortable>(Arrays.copyOf(data, data.length), data.length, HeapType.MAX);
+		Heap<Integer, IntKeyedData> h = new Heap<Integer, IntKeyedData>(Arrays.copyOf(data, data.length), data.length, HeapType.MAX);
 		h.maintainHeapPropertyAll();
 		checkMaxHeapProperty(h.getData());
 		assertEquals(99, h.extractOptimalElement().getKey().intValue());
@@ -35,13 +35,13 @@ public class HeapTest {
 		assertEquals(0, h.extractOptimalElement().getKey().intValue());
 		assertEquals(0, h.getSize());
 		
-		for(SimpleSortable element : data) {
+		for(IntKeyedData element : data) {
 			h.insert(element, minMaxProvider);
 		}
 		checkMaxHeapProperty(h.getData());
 	}
 
-	private void checkMaxHeapProperty(SimpleSortable [] data) {
+	private void checkMaxHeapProperty(IntKeyedData [] data) {
 		for(int i=0; i<data.length/2; i++) {
 			int leftChild = 2*i+1;
 			int rightChild = 2*i+2;
@@ -51,9 +51,9 @@ public class HeapTest {
 	
 	@Test
 	public void testMinHeap() {
-		SimpleSortable [] data = SimpleSortable.toSimpleSortableArray(new int [] {14, 47, 83, 99, 24, 29, 14, 0, 41, 93});
+		IntKeyedData [] data = IntKeyedData.toSimpleSortableArray(new int [] {14, 47, 83, 99, 24, 29, 14, 0, 41, 93});
 		
-		Heap<Integer, SimpleSortable> h = new Heap<>(Arrays.copyOf(data, data.length), data.length, HeapType.MIN);
+		Heap<Integer, IntKeyedData> h = new Heap<>(Arrays.copyOf(data, data.length), data.length, HeapType.MIN);
 		h.maintainHeapPropertyAll();
 		checkMinHeapProperty(h.getData());
 		assertEquals(0, h.extractOptimalElement().getKey().intValue());
@@ -68,13 +68,13 @@ public class HeapTest {
 		assertEquals(99, h.extractOptimalElement().getKey().intValue());
 		assertEquals(0, h.getSize());
 		
-		for(SimpleSortable element : data) {
+		for(IntKeyedData element : data) {
 			h.insert(element, minMaxProvider);
 		}
 		checkMinHeapProperty(h.getData());
 	}
 	
-	private void checkMinHeapProperty(SimpleSortable [] data) {
+	private void checkMinHeapProperty(IntKeyedData [] data) {
 		for(int i=0; i<data.length/2; i++) {
 			int leftChild = 2*i+1;
 			int rightChild = 2*i+2;

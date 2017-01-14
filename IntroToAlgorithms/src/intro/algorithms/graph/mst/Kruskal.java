@@ -1,17 +1,17 @@
-package amazonprep.algorithms.graph.mst;
+package intro.algorithms.graph.mst;
 
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
-import amazonprep.algorithms.graph.Edge;
-import amazonprep.algorithms.graph.Graph;
-import amazonprep.algorithms.graph.Vertex;
-import amazonprep.algorithms.graph.WeightedEdge;
-import amazonprep.algorithms.sort.SortingAlgorithm;
-import amazonprep.datastructures.list.LinkedList;
-import amazonprep.datastructures.list.ListElement;
-import amazonprep.datastructures.set.DisjointSet;
+import intro.algorithms.graph.Edge;
+import intro.algorithms.graph.Graph;
+import intro.algorithms.graph.Vertex;
+import intro.algorithms.graph.WeightedEdge;
+import intro.algorithms.sort.SortingAlgorithm;
+import intro.datastructures.list.LinkedList;
+import intro.datastructures.list.ListElement;
+import intro.datastructures.set.DisjointSet;
 
 public class Kruskal<T extends Comparable<T>, U> {
 	

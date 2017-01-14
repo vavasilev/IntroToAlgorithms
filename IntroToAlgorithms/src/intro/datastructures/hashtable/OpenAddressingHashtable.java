@@ -1,18 +1,18 @@
-package amazonprep.datastructures.hashtable;
+package intro.datastructures.hashtable;
 
-import amazonprep.algorithms.sort.SimpleSortable;
-import amazonprep.algorithms.sort.Sortable;
+import intro.algorithms.sort.IntKeyedData;
+import intro.algorithms.sort.KeyedData;
 
-public class OpenAddressingHashtable<T extends Sortable<Integer>> extends Hashtable<T> {
+public class OpenAddressingHashtable<T extends KeyedData<Integer>> extends Hashtable<T> {
 
-	private Sortable<Integer> [] slots;
+	private KeyedData<Integer> [] slots;
 	
-	private SimpleSortable deleted = new SimpleSortable(-1);
+	private IntKeyedData deleted = new IntKeyedData(-1);
 
 	public OpenAddressingHashtable(int capacity) {
 		super(capacity, new DivisionFunction());
 		
-		slots = new Sortable[capacity];
+		slots = new KeyedData[capacity];
 	}
 	
 	private int getHash(int key, int i) {

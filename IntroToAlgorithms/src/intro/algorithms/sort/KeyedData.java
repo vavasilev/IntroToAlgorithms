@@ -1,6 +1,6 @@
-package amazonprep.algorithms.sort;
+package intro.algorithms.sort;
 
-public interface Sortable<T extends Comparable<T>> {
+public interface KeyedData<T extends Comparable<T>> {
 
 	T getKey();
 	void setKey(T key);

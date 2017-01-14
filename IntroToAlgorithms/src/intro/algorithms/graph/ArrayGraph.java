@@ -1,7 +1,7 @@
-package amazonprep.algorithms.graph;
+package intro.algorithms.graph;
 
-import amazonprep.algorithms.sort.MinMaxProvider;
-import amazonprep.algorithms.sort.Sortable;
+import intro.algorithms.sort.MinMaxProvider;
+import intro.algorithms.sort.KeyedData;
 
 public class ArrayGraph<T extends Comparable<T>, U, V extends IndexedVertex<U>> {
 
@@ -12,7 +12,7 @@ public class ArrayGraph<T extends Comparable<T>, U, V extends IndexedVertex<U>> 
 	
 	private int verticesCount;
 
-	public ArrayGraph(T edges[][], V vertices[], int capacity, MinMaxProvider<T, ? extends Sortable<T>> minMaxProvider) {
+	public ArrayGraph(T edges[][], V vertices[], int capacity, MinMaxProvider<T, ? extends KeyedData<T>> minMaxProvider) {
 		this.capacity = capacity;
 		this.edges = edges;
 		for(int i=0; i<capacity; i++) {

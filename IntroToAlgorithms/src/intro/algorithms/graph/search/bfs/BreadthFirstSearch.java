@@ -1,9 +1,9 @@
-package amazonprep.algorithms.graph.search.bfs;
+package intro.algorithms.graph.search.bfs;
 
-import amazonprep.algorithms.graph.Edge;
-import amazonprep.algorithms.graph.search.GraphSearchAlgorithm;
-import amazonprep.algorithms.graph.search.VertexColor;
-import amazonprep.datastructures.queue.Queue;
+import intro.algorithms.graph.Edge;
+import intro.algorithms.graph.search.GraphSearchAlgorithm;
+import intro.algorithms.graph.search.VertexColor;
+import intro.datastructures.queue.Queue;
 
 public class BreadthFirstSearch<T> extends GraphSearchAlgorithm<T> {
 

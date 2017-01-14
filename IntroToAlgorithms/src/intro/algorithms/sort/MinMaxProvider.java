@@ -1,6 +1,6 @@
-package amazonprep.algorithms.sort;
+package intro.algorithms.sort;
 
-public interface MinMaxProvider<T extends Comparable<T>, U extends Sortable<T>> {
+public interface MinMaxProvider<T extends Comparable<T>, U extends KeyedData<T>> {
 	T getMinKey();
 	T getMaxKey();
 	

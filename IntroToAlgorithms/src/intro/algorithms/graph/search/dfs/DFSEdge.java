@@ -1,7 +1,7 @@
-package amazonprep.algorithms.graph.search.dfs;
+package intro.algorithms.graph.search.dfs;
 
-import amazonprep.algorithms.graph.Edge;
-import amazonprep.algorithms.graph.Vertex;
+import intro.algorithms.graph.Edge;
+import intro.algorithms.graph.Vertex;
 
 public class DFSEdge<T> extends Edge<T> {
 	

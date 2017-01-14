@@ -1,6 +1,6 @@
-package amazonprep.algorithms.sort;
+package intro.algorithms.sort;
 
-public class MergeSort<T extends Comparable<T>, U extends Sortable<T>> implements SortingAlgorithm<T, U> {
+public class MergeSort<T extends Comparable<T>, U extends KeyedData<T>> implements SortingAlgorithm<T, U> {
 	
 	private MinMaxProvider<T, U> minMaxProvider;
 	
@@ -28,8 +28,8 @@ public class MergeSort<T extends Comparable<T>, U extends Sortable<T>> implement
 		int length1 = middle - start + 1;
 		int length2 = end - middle;
 		
-		Sortable<T>[] L1 = new Sortable[length1+1];
-		Sortable<T>[] L2 = new Sortable[length2+1];
+		KeyedData<T>[] L1 = new KeyedData[length1+1];
+		KeyedData<T>[] L2 = new KeyedData[length2+1];
 		
 		for(int i=0; i<length1; i++) {
 			L1[i] = A[start+i];

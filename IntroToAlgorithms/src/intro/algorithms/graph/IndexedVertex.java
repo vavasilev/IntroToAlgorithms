@@ -1,4 +1,4 @@
-package amazonprep.algorithms.graph;
+package intro.algorithms.graph;
 
 public class IndexedVertex<T> extends Vertex<T> {
 	private Integer index;

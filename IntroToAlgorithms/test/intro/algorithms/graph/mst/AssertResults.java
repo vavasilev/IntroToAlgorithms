@@ -1,4 +1,4 @@
-package amazonprep.algorithms.graph.mst;
+package intro.algorithms.graph.mst;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
@@ -6,7 +6,7 @@ import static org.junit.Assert.assertTrue;
 import java.util.ArrayList;
 import java.util.List;
 
-import amazonprep.algorithms.graph.Edge;
+import intro.algorithms.graph.Edge;
 
 public class AssertResults {
 	public static final void assertResults(Edge<Character> [] edges) {

@@ -1,6 +1,6 @@
-package amazonprep.algorithms.sort;
+package intro.algorithms.sort;
 
-public class QuickSort<T extends Comparable<T>, U extends Sortable<T>> implements SortingAlgorithm<T, U> {
+public class QuickSort<T extends Comparable<T>, U extends KeyedData<T>> implements SortingAlgorithm<T, U> {
 
 	@Override
 	public U[] sort(U[] A) {
@@ -8,7 +8,7 @@ public class QuickSort<T extends Comparable<T>, U extends Sortable<T>> implement
 		return A;
 	}
 	
-	private void quickSort(Sortable<T>[] A, int start, int end) {
+	private void quickSort(KeyedData<T>[] A, int start, int end) {
 		if(start >= end) {
 			return;
 		}
@@ -17,7 +17,7 @@ public class QuickSort<T extends Comparable<T>, U extends Sortable<T>> implement
 		quickSort(A, q+1, end);
 	}
 	
-	protected int partition(Sortable<T>[] A, int start, int end) {
+	protected int partition(KeyedData<T>[] A, int start, int end) {
 		int pivotI = start + (int)(Math.random()*(end-start+1));
 		T pivot = A[pivotI].getKey();
 		Util.swap(A, pivotI, end);
