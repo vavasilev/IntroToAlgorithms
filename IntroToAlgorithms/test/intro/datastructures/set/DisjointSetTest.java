@@ -1,6 +1,7 @@
 package intro.datastructures.set;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 
 import org.junit.Test;
 
@@ -8,34 +9,37 @@ public class DisjointSetTest {
 
 	@Test
 	public void test() {
-		DisjointSet<Integer> set1 = new DisjointSet<Integer>();
-		set1.setData(5);
-		DisjointSet<Integer> set2 = new DisjointSet<Integer>();
-		set2.setData(8);
-		assertNotEquals(set1.getRepresentative(), set2.getRepresentative());
+		DisjointSetFactory<BoundInteger> factory = new LinkedListDisjointSetFactory<BoundInteger>();
 		
-		set1.union(set2);
-		assertEquals(set1.getRepresentative(), set2.getRepresentative());
+		BoundInteger int1 = new BoundInteger(5, factory);
+		BoundInteger int2 = new BoundInteger(8, factory);
+		int1.getDisjointSet().union(int2.getDisjointSet());
+		assertEquals(int1.getDisjointSet(), int2.getDisjointSet());
 		
-		DisjointSet<Integer> set3 = new DisjointSet<Integer>();
-		set3.setData(18);
-		assertNotEquals(set1.getRepresentative(), set3.getRepresentative());
-		assertNotEquals(set2.getRepresentative(), set3.getRepresentative());
+		BoundInteger int3 = new BoundInteger(5, factory);
+		assertNotEquals(int1.getDisjointSet(), int3.getDisjointSet());
+		assertNotEquals(int2.getDisjointSet(), int3.getDisjointSet());
 		
-		set1.union(set3);
-		assertEquals(set1.getRepresentative(), set3.getRepresentative());
-		assertEquals(set2.getRepresentative(), set3.getRepresentative());
+		int1.getDisjointSet().union(int3.getDisjointSet());
+		assertEquals(int1.getDisjointSet(), int3.getDisjointSet());
+		assertEquals(int2.getDisjointSet(), int3.getDisjointSet());
 		
-		DisjointSet<Integer> set4 = new DisjointSet<Integer>();
-		set4.setData(28);
-		assertNotEquals(set1.getRepresentative(), set4.getRepresentative());
-		assertNotEquals(set2.getRepresentative(), set4.getRepresentative());
-		assertNotEquals(set3.getRepresentative(), set4.getRepresentative());
+		BoundInteger int4 = new BoundInteger(28, factory);
+		assertNotEquals(int1.getDisjointSet(), int4.getDisjointSet());
+		assertNotEquals(int2.getDisjointSet(), int4.getDisjointSet());
+		assertNotEquals(int3.getDisjointSet(), int4.getDisjointSet());
 		
-		set3.union(set4);
-		assertEquals(set1.getRepresentative(), set4.getRepresentative());
-		assertEquals(set2.getRepresentative(), set4.getRepresentative());
-		assertEquals(set3.getRepresentative(), set4.getRepresentative());
+		BoundInteger int5 = new BoundInteger(40, factory);
+		int4.getDisjointSet().union(int5.getDisjointSet());
+		int5.getDisjointSet().union(int3.getDisjointSet());
+
+		assertEquals(int1.getDisjointSet(), int4.getDisjointSet());
+		assertEquals(int2.getDisjointSet(), int4.getDisjointSet());
+		assertEquals(int3.getDisjointSet(), int4.getDisjointSet());
+		assertEquals(int1.getDisjointSet(), int5.getDisjointSet());
+		assertEquals(int2.getDisjointSet(), int5.getDisjointSet());
+		assertEquals(int3.getDisjointSet(), int5.getDisjointSet());
+		assertEquals(int4.getDisjointSet(), int5.getDisjointSet());
 	}
 
 }

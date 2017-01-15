@@ -28,7 +28,7 @@ public class LinkedList<T> implements Iterable<T> {
 	}
 	
 	public void union(LinkedList<T> other) {
-		if(other.head.getNext() != other.head) {
+		if(other != this && other.head.getNext() != other.head) {
 			head.getPrev().setNext(other.head.getNext());
 			other.head.getNext().setPrev(head.getPrev());
 			
@@ -72,6 +72,25 @@ public class LinkedList<T> implements Iterable<T> {
 	@Override
 	public Iterator<T> iterator() {
 		return new Iterator<T>() {
+			Iterator<ListElement<T>> elementsIterator = elementsIterator();
+			@Override
+			public boolean hasNext() {
+				return elementsIterator.hasNext();
+			}
+
+			@Override
+			public T next() {
+				return elementsIterator.next().getData();
+			}
+
+			@Override
+			public void remove() {
+				elementsIterator.remove();
+			}};
+	}
+	
+	public Iterator<ListElement<T>> elementsIterator() {
+		return new Iterator<ListElement<T>>() {
 			ListElement<T> elm = head;
 			@Override
 			public boolean hasNext() {
@@ -79,15 +98,14 @@ public class LinkedList<T> implements Iterable<T> {
 			}
 
 			@Override
-			public T next() {
+			public ListElement<T> next() {
 				elm = elm.getNext();
-				return elm.getData();
+				return elm;
 			}
 
 			@Override
 			public void remove() {
-				// TODO Auto-generated method stub
-				
+				throw new UnsupportedOperationException();
 			}};
 	}
 	

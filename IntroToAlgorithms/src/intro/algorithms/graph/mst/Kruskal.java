@@ -9,6 +9,8 @@ import intro.algorithms.sort.SortingAlgorithm;
 import intro.datastructures.list.LinkedList;
 import intro.datastructures.list.ListElement;
 import intro.datastructures.set.DisjointSet;
+import intro.datastructures.set.DisjointSetBound;
+import intro.datastructures.set.LinkedListDisjointSet;
 
 public class Kruskal<T extends Comparable<T>, U> {
 	
@@ -35,24 +37,15 @@ public class Kruskal<T extends Comparable<T>, U> {
 		// Sort edges by weight
 		edgesArray = algo.sort(edgesArray);
 		
-		// Create sets for all vertices
-		for(KruskalVertex<U> vertex : g.getVertices()) {
-			DisjointSet<KruskalVertex<U>> set = new DisjointSet<KruskalVertex<U>>();
-			set.setData(vertex);
-			vertex.setDisjointSet(set);
-		}
-		
 		// Union the vertex sets based on nondecreasing order of edges
 		WeightedEdge<T, U>[] resultEdges = new  WeightedEdge[edgesArray.length];
 		int i=0;
 		for(WeightedEdge<T, U> anEdge: edgesArray) {
 			KruskalVertex<U> start = (KruskalVertex<U>)anEdge.getStart();
 			KruskalVertex<U> end = (KruskalVertex<U>)anEdge.getEnd();
-			DisjointSet<KruskalVertex<U>> u = start.getDisjointSet();
-			DisjointSet<KruskalVertex<U>> v = end.getDisjointSet();
 			
-			if(u.getRepresentative() != v.getRepresentative()) {
-				u.union(v);
+			if(start.getDisjointSet() != end.getDisjointSet()) {
+				start.getDisjointSet().union(end.getDisjointSet());
 				resultEdges[i] = anEdge;
 				i++;
 			}
