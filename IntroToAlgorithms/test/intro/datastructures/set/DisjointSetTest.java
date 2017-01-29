@@ -8,9 +8,18 @@ import org.junit.Test;
 public class DisjointSetTest {
 
 	@Test
-	public void test() {
+	public void testLinkedList() {
 		DisjointSetFactory<BoundInteger> factory = new LinkedListDisjointSetFactory<BoundInteger>();
-		
+		test(factory);
+	}
+	
+	@Test
+	public void testTree() {
+		DisjointSetFactory<BoundInteger> factory = new TreeDisjointSetFactory<BoundInteger>();
+		test(factory);
+	}
+	
+	private void test(DisjointSetFactory<BoundInteger> factory) {
 		BoundInteger int1 = new BoundInteger(5, factory);
 		BoundInteger int2 = new BoundInteger(8, factory);
 		int1.getDisjointSet().union(int2.getDisjointSet());

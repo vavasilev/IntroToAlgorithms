@@ -6,7 +6,7 @@ import intro.algorithms.graph.Graph;
 import intro.algorithms.graph.WeightedEdge;
 import intro.algorithms.sort.QuickSort;
 import intro.datastructures.set.DisjointSetFactory;
-import intro.datastructures.set.LinkedListDisjointSetFactory;
+import intro.datastructures.set.TreeDisjointSetFactory;
 
 public class KruskalTest {
 
@@ -20,7 +20,7 @@ public class KruskalTest {
 	}
 	
 	private Graph<Character, KruskalVertex<Character>, WeightedEdge<Double, Character>> buildGraph() {
-		DisjointSetFactory<KruskalVertex<Character>> factory = new LinkedListDisjointSetFactory<KruskalVertex<Character>>();
+		DisjointSetFactory<KruskalVertex<Character>> factory = new TreeDisjointSetFactory<KruskalVertex<Character>>();
 		Graph<Character, KruskalVertex<Character>, WeightedEdge<Double, Character>> graph = 
 				new Graph<Character, KruskalVertex<Character>, WeightedEdge<Double, Character>>();
 		

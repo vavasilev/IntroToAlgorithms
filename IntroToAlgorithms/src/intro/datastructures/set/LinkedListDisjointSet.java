@@ -33,4 +33,9 @@ public class LinkedListDisjointSet<T extends DisjointSetBound> implements Disjoi
 		
 		first.list.union(second.list);
 	}
+
+	@Override
+	public void findAndSetDisjointSet(T bound) {
+		// Do nothing for linked list implementation
+	}
 }

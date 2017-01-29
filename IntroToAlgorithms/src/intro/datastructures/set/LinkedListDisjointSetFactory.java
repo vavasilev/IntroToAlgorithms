@@ -4,7 +4,7 @@ public class LinkedListDisjointSetFactory<T extends DisjointSetBound> implements
 
 	@Override
 	public DisjointSet<T> createDisjointSet(T data) {
-		return new LinkedListDisjointSet<T>(data);
+		return new LinkedListDisjointSet<>(data);
 	}
 
 }
