@@ -20,8 +20,11 @@ public class HeapTest {
 	public void testMaxHeap() {
 		IntKeyedData [] data = IntKeyedData.toSimpleSortableArray(new int [] {14, 47, 83, 99, 24, 29, 14, 0, 41, 93});
 		
-		Heap<Integer, IntKeyedData> h = new Heap<Integer, IntKeyedData>(Arrays.copyOf(data, data.length), data.length, HeapType.MAX);
-		h.maintainHeapPropertyAll();
+		BinaryHeap<Integer, IntKeyedData> h = new BinaryHeap<Integer, IntKeyedData>(
+				Arrays.copyOf(data, data.length), 
+				data.length, 
+				HeapType.MAX,
+				minMaxProvider);
 		checkMaxHeapProperty(h.getData());
 		assertEquals(99, h.extractOptimalElement().getKey().intValue());
 		assertEquals(93, h.extractOptimalElement().getKey().intValue());
@@ -36,7 +39,7 @@ public class HeapTest {
 		assertEquals(0, h.getSize());
 		
 		for(IntKeyedData element : data) {
-			h.insert(element, minMaxProvider);
+			h.insert(element);
 		}
 		checkMaxHeapProperty(h.getData());
 	}
@@ -53,8 +56,11 @@ public class HeapTest {
 	public void testMinHeap() {
 		IntKeyedData [] data = IntKeyedData.toSimpleSortableArray(new int [] {14, 47, 83, 99, 24, 29, 14, 0, 41, 93});
 		
-		Heap<Integer, IntKeyedData> h = new Heap<>(Arrays.copyOf(data, data.length), data.length, HeapType.MIN);
-		h.maintainHeapPropertyAll();
+		BinaryHeap<Integer, IntKeyedData> h = new BinaryHeap<>(
+				Arrays.copyOf(data, data.length), 
+				data.length, 
+				HeapType.MIN,
+				minMaxProvider);
 		checkMinHeapProperty(h.getData());
 		assertEquals(0, h.extractOptimalElement().getKey().intValue());
 		assertEquals(14, h.extractOptimalElement().getKey().intValue());
@@ -69,7 +75,7 @@ public class HeapTest {
 		assertEquals(0, h.getSize());
 		
 		for(IntKeyedData element : data) {
-			h.insert(element, minMaxProvider);
+			h.insert(element);
 		}
 		checkMinHeapProperty(h.getData());
 	}

@@ -10,7 +10,7 @@ import intro.algorithms.tree.BinaryTreeNode;
 import intro.algorithms.tree.BinaryTreeVisitor;
 import intro.algorithms.tree.WalkOrder;
 import intro.algorithms.tree.WalkOrderData;
-import intro.datastructures.heap.Heap;
+import intro.datastructures.heap.BinaryHeap;
 import intro.datastructures.heap.Heap.HeapType;
 
 public class Huffman {
@@ -22,8 +22,12 @@ public class Huffman {
 	}
 	
 	public BinaryTree<Integer, CharacterFrequency> getCode(CharacterFrequency [] frequencies) {
-		Heap<Integer, BinaryTreeNode<Integer, CharacterFrequency>> h = new Heap<Integer, BinaryTreeNode<Integer, CharacterFrequency>>(toTreeNodes(frequencies), frequencies.length, HeapType.MIN);
-		h.maintainHeapPropertyAll();
+		BinaryHeap<Integer, BinaryTreeNode<Integer, CharacterFrequency>> h = 
+				new BinaryHeap<Integer, BinaryTreeNode<Integer, CharacterFrequency>>(
+						toTreeNodes(frequencies), 
+						frequencies.length, 
+						HeapType.MIN,
+						minMaxProvider);
 		while(h.getSize() > 1) {
 			BinaryTreeNode<Integer, CharacterFrequency> f1 = h.extractOptimalElement();
 			BinaryTreeNode<Integer, CharacterFrequency> f2 = h.extractOptimalElement();
@@ -32,7 +36,7 @@ public class Huffman {
 			parent.setRight(f2);
 			f1.setParent(parent);
 			f2.setParent(parent);
-			h.insert(parent, minMaxProvider);
+			h.insert(parent);
 		}
 		
 		BinaryTree<Integer, CharacterFrequency> result = new BinaryTree<Integer, CharacterFrequency>();

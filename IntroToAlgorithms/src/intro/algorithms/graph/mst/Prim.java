@@ -6,7 +6,7 @@ import intro.algorithms.graph.ArrayGraph;
 import intro.algorithms.graph.Edge;
 import intro.algorithms.sort.MinMaxProvider;
 import intro.algorithms.sort.KeyedData;
-import intro.datastructures.heap.Heap;
+import intro.datastructures.heap.BinaryHeap;
 import intro.datastructures.heap.Heap.HeapType;
 
 public class Prim<T extends Comparable<T>, U> {
@@ -20,8 +20,11 @@ public class Prim<T extends Comparable<T>, U> {
 	public Edge<U>[] buildMinimumSpanningTree(ArrayGraph<T, U, PrimVertex<T, U>> g, PrimVertex<T, U> start) {
 		start.setKey(minMaxProvider.getMinKey());
 		PrimVertex<T, U>[] vertices = Arrays.copyOf(g.getVertices(), g.getVerticesCount());
-		Heap<T, PrimVertex<T, U>> heap = new Heap<>(vertices, vertices.length, HeapType.MIN);
-		heap.maintainHeapPropertyAll();
+		BinaryHeap<T, PrimVertex<T, U>> heap = new BinaryHeap<>(
+				vertices, 
+				vertices.length, 
+				HeapType.MIN,
+				null);
 		
 		PrimVertex<T, U> vertex = null;
 
@@ -36,7 +39,9 @@ public class Prim<T extends Comparable<T>, U> {
 				
 				T weight = outgoingEdges[i];
 				
-				if(heap.containsElement(otherVertex) && otherVertex.getKey().compareTo(weight) > 0) {
+				// If backing element is not null, this means the heap contains this
+				// vertex
+				if(otherVertex.getBackingElement() != null && otherVertex.getKey().compareTo(weight) > 0) {
 					heap.updateKey(otherVertex, weight);
 					otherVertex.setParent(vertex);
 				}

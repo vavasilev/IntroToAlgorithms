@@ -1,13 +1,15 @@
 package intro.algorithms.sort;
 
-import intro.datastructures.heap.Heap;
+import intro.datastructures.heap.BinaryHeap;
 
 public class HeapSort<T extends Comparable<T>, U extends KeyedData<T>> implements SortingAlgorithm<T, U> {
 
 	@Override
 	public U[] sort(U[] A) {
-		Heap<T,U> h = new Heap<T,U>(A, A.length, Heap.HeapType.MAX);
-		h.maintainHeapPropertyAll();
+		BinaryHeap<T,U> h = new BinaryHeap<T,U>(A,
+				A.length,
+				BinaryHeap.HeapType.MAX,
+				null);
 		
 		for(int i = A.length-1; i>0; i--) {
 			U max = h.extractOptimalElement();
