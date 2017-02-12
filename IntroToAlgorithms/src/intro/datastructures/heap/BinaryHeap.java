@@ -113,7 +113,7 @@ public class BinaryHeap<T extends Comparable<T>, U extends KeyedData<T>>
 	@Override
 	public void updateKey(U element, T key) {
 		if(!(element instanceof HeapContext)) {
-			throw new IllegalArgumentException("updateKey not supported for element thjat does not implement HeapContext");
+			throw new IllegalArgumentException("updateKey not supported for element that does not implement HeapContext");
 		}
 		
 		HeapContext context = (HeapContext)element;
