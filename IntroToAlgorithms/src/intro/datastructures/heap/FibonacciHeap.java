@@ -3,6 +3,7 @@ package intro.datastructures.heap;
 import java.util.Iterator;
 
 import intro.algorithms.sort.KeyedData;
+import intro.algorithms.sort.MinMaxProvider;
 
 public class FibonacciHeap<T extends Comparable<T>, U extends KeyedData<T>>
 		implements Heap<T, U> {
@@ -11,9 +12,12 @@ public class FibonacciHeap<T extends Comparable<T>, U extends KeyedData<T>>
 	
 	private FibonacciElement<U> optElement;
 	private int size;
+	private MinMaxProvider<T, ? extends KeyedData<T>> minMaxProvider;
 	
-	public FibonacciHeap(HeapType heapType) {
+	public FibonacciHeap(HeapType heapType,
+			MinMaxProvider<T, ? extends KeyedData<T>> minMaxProvider) {
 		this.heapType = heapType;
+		this.minMaxProvider = minMaxProvider;
 	}
 
 	@Override
@@ -114,7 +118,10 @@ public class FibonacciHeap<T extends Comparable<T>, U extends KeyedData<T>>
 	}
 	
 	private int maxDegree() {
-		return (int) (Math.log(size) / Math.log(2)) + 1;
+		// It should be log +1, we set it +2 for the case when
+		// you update keys - it mighty happen that node with degree for example
+		// 2 has less than 4 nodes (3 nodes)
+		return (int) (Math.log(size) / Math.log(2)) + 2;
 	}
 
 	@Override
@@ -219,13 +226,93 @@ public class FibonacciHeap<T extends Comparable<T>, U extends KeyedData<T>>
 
 	@Override
 	public void updateKey(U element, T key) {
-		// TODO Auto-generated method stub
+		if(!(element instanceof HeapContext)) {
+			throw new IllegalArgumentException("updateKey not supported for element that does not implement HeapContext");
+		}
 		
+		HeapContext context = (HeapContext)element;
+		updateKey((FibonacciElement<U>)context.getBackingElement(), key);
+	}
+	
+	private void updateKey(FibonacciElement<U> x, T key) {
+		if(key.compareTo(x.getData().getKey())<0 && heapType == HeapType.MAX) {
+			throw new UnsupportedOperationException("Cannot decrease key of a max heap");
+		} else if(key.compareTo(x.getData().getKey())>0 && heapType == HeapType.MIN) {
+			throw new UnsupportedOperationException("Cannot increase key of a min heap");
+		}
+		x.getData().setKey(key);
+		
+		FibonacciElement<U> y = (FibonacciElement<U>)x.getParent();
+		
+		if(y != null) {
+			if(key.compareTo(y.getData().getKey())<0 && heapType == HeapType.MIN ||
+					key.compareTo(y.getData().getKey())>0 && heapType == HeapType.MAX) {
+				cut(x, y);
+				cascadingCut(y);
+			}
+		}
+		
+		if(key.compareTo(optElement.getData().getKey())<0 && heapType == HeapType.MIN ||
+				key.compareTo(optElement.getData().getKey())>0 && heapType == HeapType.MAX) {
+			optElement = x;
+		}
+	}
+	
+	private void cut(FibonacciElement<U> child, FibonacciElement<U> parent) {
+		if(child.getNext() == child) {
+			parent.setChild(null);
+		} else {
+			if(parent.getChild() == child) {
+				parent.setChild(child.getNext());
+			}
+			FibonacciElement<U> prevChild = (FibonacciElement<U>)child.getPrev();
+			FibonacciElement<U> nextChild = (FibonacciElement<U>)child.getNext();
+			prevChild.setNext(nextChild);
+			nextChild.setPrev(prevChild);
+		}
+		parent.setDegree(parent.getDegree() - 1);
+		child.setParent(null);
+		child.setMark(false);
+		
+		// Add child to root list of the heap
+		FibonacciElement<U> nextOptElement = (FibonacciElement<U>)optElement.getNext();
+		optElement.setNext(child);
+		child.setPrev(optElement);
+		child.setNext(nextOptElement);
+		nextOptElement.setPrev(child);
+	}
+	
+	public U delete(U element) {
+		if(!(element instanceof HeapContext)) {
+			throw new IllegalArgumentException("updateKey not supported for element that does not implement HeapContext");
+		}
+		HeapContext context = (HeapContext)element;
+		FibonacciElement<U> x = (FibonacciElement<U>)context.getBackingElement();
+		
+		if(heapType == HeapType.MAX) {
+			updateKey(x, minMaxProvider.getMaxKey());
+		} else if(heapType == HeapType.MIN) {
+			updateKey(x, minMaxProvider.getMinKey());
+		}
+		
+		return extractOptimalElement();
+	}
+	
+	private void cascadingCut(FibonacciElement<U> y) {
+		FibonacciElement<U> z = (FibonacciElement<U>)y.getParent();
+		if(z != null) {
+			if(y.isMark()) {
+				cut(y, z);
+				cascadingCut(z);
+			} else {
+				y.setMark(true);
+			}
+		}
 	}
 
-	private void setBackingElement(U elemen, FibonacciElement<U> fibElement) {
-		if(elemen instanceof HeapContext) {
-			((HeapContext)elemen).setBackingElement(fibElement);
+	private void setBackingElement(U element, FibonacciElement<U> fibElement) {
+		if(element instanceof HeapContext) {
+			((HeapContext)element).setBackingElement(fibElement);
 		}
 	}
 }

@@ -1,8 +1,11 @@
 package intro.algorithms.sort;
 
-public class IntKeyedData implements KeyedData<Integer> {
+import intro.datastructures.heap.HeapContext;
 
-	int key;
+public class IntKeyedData implements KeyedData<Integer>, HeapContext {
+
+	private int key;
+	private Object element;
 	
 	public IntKeyedData(int key) {
 		this.key = key;
@@ -30,5 +33,15 @@ public class IntKeyedData implements KeyedData<Integer> {
 	@Override
 	public String toString() {
 		return ""+key;
+	}
+
+	@Override
+	public void setBackingElement(Object element) {
+		this.element = element;
+	}
+
+	@Override
+	public Object getBackingElement() {
+		return element;
 	}
 }

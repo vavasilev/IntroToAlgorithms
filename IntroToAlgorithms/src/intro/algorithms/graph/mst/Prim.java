@@ -6,25 +6,25 @@ import intro.algorithms.graph.ArrayGraph;
 import intro.algorithms.graph.Edge;
 import intro.algorithms.sort.MinMaxProvider;
 import intro.algorithms.sort.KeyedData;
-import intro.datastructures.heap.BinaryHeap;
+import intro.datastructures.heap.Heap;
 import intro.datastructures.heap.Heap.HeapType;
+import intro.datastructures.heap.HeapFactory;
 
 public class Prim<T extends Comparable<T>, U> {
 	
+	private HeapFactory<T, PrimVertex<T, U>> heapFactory;
 	private MinMaxProvider<T, ? extends KeyedData<T>> minMaxProvider;
 	
-	public Prim(MinMaxProvider<T, ? extends KeyedData<T>> minMaxProvider) {
+	public Prim(MinMaxProvider<T, ? extends KeyedData<T>> minMaxProvider,
+			HeapFactory<T, PrimVertex<T, U>> heapFactory) {
 		this.minMaxProvider = minMaxProvider;
+		this.heapFactory = heapFactory;
 	}
 
 	public Edge<U>[] buildMinimumSpanningTree(ArrayGraph<T, U, PrimVertex<T, U>> g, PrimVertex<T, U> start) {
 		start.setKey(minMaxProvider.getMinKey());
 		PrimVertex<T, U>[] vertices = Arrays.copyOf(g.getVertices(), g.getVerticesCount());
-		BinaryHeap<T, PrimVertex<T, U>> heap = new BinaryHeap<>(
-				vertices, 
-				vertices.length, 
-				HeapType.MIN,
-				null);
+		Heap<T, PrimVertex<T, U>> heap = heapFactory.createHeap(vertices, HeapType.MIN, null);
 		
 		PrimVertex<T, U> vertex = null;
 

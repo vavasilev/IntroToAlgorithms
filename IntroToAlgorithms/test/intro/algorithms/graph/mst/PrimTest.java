@@ -4,6 +4,7 @@ import org.junit.Test;
 
 import intro.algorithms.graph.ArrayGraph;
 import intro.algorithms.sort.DoubleMinMaxProvider;
+import intro.datastructures.heap.FibonacciHeapFactory;
 
 public class PrimTest {
 	
@@ -13,7 +14,7 @@ public class PrimTest {
 	public void test() {
 		ArrayGraph<Double, Character, PrimVertex<Double, Character>> graph = buildGraph();
 		
-		Prim<Double, Character> algo = new Prim<Double, Character>(minMaxProvider);
+		Prim<Double, Character> algo = new Prim<Double, Character>(minMaxProvider, new FibonacciHeapFactory<>());
 		
 		AssertResults.assertResults(algo.buildMinimumSpanningTree(graph, graph.getVertices()[0]));
 	}
